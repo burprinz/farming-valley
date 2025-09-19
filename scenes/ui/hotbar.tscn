@@ -1,0 +1,337 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgbr611xgomtn"]
+
+[ext_resource type="Theme" uid="uid://c1381xujec7ub" path="res://scenes/ui/game_ui_theme.tres" id="1_yjdhc"]
+[ext_resource type="Script" uid="uid://de0fhms0uikmc" path="res://scenes/ui/hotbar.gd" id="2_m1s8h"]
+
+[node name="Hotbar" type="PanelContainer"]
+offset_right = 46.0
+offset_bottom = 52.0
+theme = ExtResource("1_yjdhc")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_m1s8h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Hotbar01" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon01" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar01"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel01" type="Label" parent="MarginContainer/HBoxContainer/Hotbar01"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Hotbar02" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon02" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar02"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel02" type="Label" parent="MarginContainer/HBoxContainer/Hotbar02"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Hotbar03" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon03" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar03"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel03" type="Label" parent="MarginContainer/HBoxContainer/Hotbar03"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Hotbar04" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon04" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar04"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel04" type="Label" parent="MarginContainer/HBoxContainer/Hotbar04"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Hotbar05" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon05" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar05"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel05" type="Label" parent="MarginContainer/HBoxContainer/Hotbar05"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Hotbar06" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon06" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar06"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel06" type="Label" parent="MarginContainer/HBoxContainer/Hotbar06"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Hotbar07" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon07" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar07"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel07" type="Label" parent="MarginContainer/HBoxContainer/Hotbar07"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Hotbar08" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon08" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar08"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel08" type="Label" parent="MarginContainer/HBoxContainer/Hotbar08"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Hotbar09" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HotbarIcon09" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar09"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HotbarLabel09" type="Label" parent="MarginContainer/HBoxContainer/Hotbar09"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar01" to="." method="_on_hotbar_01_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar02" to="." method="_on_hotbar_02_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar03" to="." method="_on_hotbar_03_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar04" to="." method="_on_hotbar_04_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar05" to="." method="_on_hotbar_05_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar06" to="." method="_on_hotbar_06_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar07" to="." method="_on_hotbar_07_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar08" to="." method="_on_hotbar_08_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Hotbar09" to="." method="_on_hotbar_09_pressed"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwl2838rv7v6l"]
+
+[ext_resource type="Script" uid="uid://dl7gnlaow042o" path="res://scenes/items/classes/tool_item.gd" id="1_hcfn8"]
+
+[node name="ToolItem" type="Node"]
+script = ExtResource("1_hcfn8")

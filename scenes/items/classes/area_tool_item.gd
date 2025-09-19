@@ -1,0 +1,2 @@
+class_name AreaToolItem
+extends ToolItem

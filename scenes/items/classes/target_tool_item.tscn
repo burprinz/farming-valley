@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw7x65vbri5yq"]
+
+[ext_resource type="Script" uid="uid://ddb0ccueebpev" path="res://scenes/items/classes/target_tool_item.gd" id="1_e2q5o"]
+
+[node name="TargetToolItem" type="Node"]
+script = ExtResource("1_e2q5o")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://o4ruusl7pnb8"]
+
+[ext_resource type="Script" uid="uid://c7jpj1rcmiguv" path="res://scenes/items/tools/stone_axe.gd" id="1_0glpa"]
+[ext_resource type="Texture2D" uid="uid://cpx1h0e15l6mg" path="res://assets/sproutlands/items/tools/stone_axe.png" id="1_skhy7"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="3_amj4n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfbhk"]
+radius = 8.06226
+
+[node name="StoneAxe" type="Sprite2D"]
+texture = ExtResource("1_skhy7")
+script = ExtResource("1_0glpa")
+tool = 3
+display_name = "Stone Axe"
+stackable = false
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("3_amj4n")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_xfbhk")

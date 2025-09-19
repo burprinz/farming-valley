@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c343oihnn18he"]
+
+[ext_resource type="Script" uid="uid://3pw8jaa0as8g" path="res://scenes/components/component_scripts/tools_cursor_component.gd" id="1_dkogj"]
+
+[node name="ToolsCursorComponent" type="Node"]
+script = ExtResource("1_dkogj")

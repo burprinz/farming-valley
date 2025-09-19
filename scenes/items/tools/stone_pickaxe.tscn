@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg10wca6n050j"]
+
+[ext_resource type="Script" uid="uid://dse53wix32si8" path="res://scenes/items/tools/stone_pickaxe.gd" id="1_lbb4k"]
+[ext_resource type="Texture2D" uid="uid://fhiddbfyub5u" path="res://assets/luiskun/items/tools/stone_pickaxe.png" id="1_vs75m"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="3_2nfqf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i5s7l"]
+radius = 8.06226
+
+[node name="StonePickaxe" type="Sprite2D"]
+texture = ExtResource("1_vs75m")
+script = ExtResource("1_lbb4k")
+tool = 2
+display_name = "Stone Pickaxe"
+stackable = false
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("3_2nfqf")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_i5s7l")

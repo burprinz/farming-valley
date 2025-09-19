@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bukkdl04iwkvd"]
+
+[ext_resource type="Script" uid="uid://4hu7yk41q0p6" path="res://scenes/items/classes/none_item.gd" id="1_4eycs"]
+
+[node name="NoneItem" type="Sprite2D"]
+script = ExtResource("1_4eycs")

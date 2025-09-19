@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bteamn8ml3s0x"]
+
+[ext_resource type="Texture2D" uid="uid://6ppw4krn3dpc" path="res://assets/sproutlands/items/tools/watering_can.png" id="1_4q70h"]
+[ext_resource type="Script" uid="uid://bjqdnq18r4a2p" path="res://scenes/items/tools/watering_can.gd" id="1_rsgfl"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="3_64dus"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6j2d8"]
+radius = 8.0
+
+[node name="WateringCan" type="Sprite2D"]
+texture = ExtResource("1_4q70h")
+script = ExtResource("1_rsgfl")
+tool = 5
+display_name = "Watering Can"
+stackable = false
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("3_64dus")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_6j2d8")

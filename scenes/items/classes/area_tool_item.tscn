@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbtu3ayl70gsc"]
+
+[ext_resource type="Script" uid="uid://dy0lhsi52ktqy" path="res://scenes/items/classes/area_tool_item.gd" id="1_beqfk"]
+
+[node name="AreaToolItem" type="Node"]
+script = ExtResource("1_beqfk")
