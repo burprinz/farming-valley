@@ -36,7 +36,6 @@ var hotbar_labels: Array[Label]
 
 func _ready() -> void:
 	
-	
 	hotbar_cells.append(hotbar_01)
 	hotbar_cells.append(hotbar_02)
 	hotbar_cells.append(hotbar_03)
@@ -68,7 +67,7 @@ func _ready() -> void:
 	hotbar_labels.append(hotbar_label_09)
 	
 	InventoryManager.hotbar_changed.connect(on_hotbar_changed)
-	
+
 
 func on_hotbar_changed() -> void:
 	var infos: Array[ItemSlotInformation] = InventoryManager.get_hotbar_infos()

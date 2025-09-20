@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cywtyijt0saan"]
+
+[ext_resource type="Texture2D" uid="uid://b41jwbk7r7f8r" path="res://assets/sproutlands/items/plants_and_crops/corn_seeds.png" id="1_dlwh2"]
+[ext_resource type="Script" uid="uid://ucrmhjn0jlln" path="res://scenes/items/nature/seeds/corn_seeds.gd" id="1_jb0h6"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="3_87efj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dlwh2"]
+radius = 7.0
+
+[node name="CornSeeds" type="Sprite2D"]
+texture = ExtResource("1_dlwh2")
+script = ExtResource("1_jb0h6")
+tool = 6
+display_name = "Corn Seeds"
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("3_87efj")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_dlwh2")

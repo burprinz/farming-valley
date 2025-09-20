@@ -16,6 +16,8 @@ static func movement_input() -> Vector2:
 	
 	return direction
 
+static func is_inv_input() -> bool:
+	return Input.is_action_just_pressed("inventory")
 
 static func is_movement_input() -> bool:
 	return direction != Vector2.ZERO

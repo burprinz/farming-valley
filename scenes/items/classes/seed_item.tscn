@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmrlkmstmf4xs"]
+
+[ext_resource type="Script" uid="uid://dndfp7skltous" path="res://scenes/items/classes/seed_item.gd" id="1_t2x78"]
+
+[node name="SeedItem" type="Node"]
+script = ExtResource("1_t2x78")

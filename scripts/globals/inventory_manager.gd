@@ -9,12 +9,18 @@ var hotbar_infos: Array[ItemSlotInformation]
 var hotbar_created: bool = false
 var selected_hotbar_slot: int = -1
 
-signal hotbar_changed
+var inventory: Array[Array]
+var inventory_infos: Array[ItemSlotInformation]
+var inventory_created: bool = false
 
+
+
+signal hotbar_changed
+signal inventory_changed
 # ALLGEMEIN
 
 # Returnt was nicht ins inv gepasst hat
-func add_item_to_inventory(item: Item) -> int:
+func consume_items(item: Item) -> int:
 	var name: String = item.display_name
 	var amount: int = item.amount
 	var stackable: bool = item.stackable
@@ -24,10 +30,8 @@ func add_item_to_inventory(item: Item) -> int:
 	
 	return amount
 
-# HOTBAR
-func get_hotbar_infos() -> Array[ItemSlotInformation]:
-	return hotbar_infos
 
+# HOTBAR
 func create_hotbar() -> void:
 	var none: Item = none_item.instantiate()
 	for i in range(hotbar_length):
@@ -37,6 +41,9 @@ func create_hotbar() -> void:
 		hotbar.append(none)
 		hotbar_infos.append(slotinfo)
 	hotbar_created = true
+
+func get_hotbar_infos() -> Array[ItemSlotInformation]:
+	return hotbar_infos
 
 func add_item_to_hotbar(item: Item, pos: int) -> bool:
 	if !hotbar_created:
@@ -60,15 +67,6 @@ func add_item_to_hotbar(item: Item, pos: int) -> bool:
 	hotbar_infos[pos] = newInfo
 	hotbar_changed.emit()
 	return true
-
-func change_selected_slot(new_slot: int) -> void:
-	print("Change to " , new_slot)
-	selected_hotbar_slot = new_slot
-
-func is_selected_item_tool() -> bool:
-	if !hotbar_created:
-		create_hotbar()
-	return selected_hotbar_slot >= 0 && selected_hotbar_slot < hotbar_length && hotbar_infos[selected_hotbar_slot].tool_type != DataTypes.ToolTypes.None
 
 func add_as_many_items_to_hotbar(item: Item, name: String, amount: int, stackable: bool) -> int:
 	if !hotbar_created:
@@ -99,9 +97,44 @@ func add_as_many_items_to_hotbar(item: Item, name: String, amount: int, stackabl
 	
 	return amount
 
+
+func is_selected_item_tool() -> bool:
+	if !hotbar_created:
+		create_hotbar()
+	return selected_hotbar_slot >= 0 && selected_hotbar_slot < hotbar_length && hotbar_infos[selected_hotbar_slot].tool_type != DataTypes.ToolTypes.None
+
 func get_selected_tool_type() -> DataTypes.ToolTypes:
 	return hotbar_infos[selected_hotbar_slot].tool_type
 
+func change_selected_slot(new_slot: int) -> void:
+	Log.DEBUG("Slot " + str(new_slot) + " in hotbar selected")
+	selected_hotbar_slot = new_slot
+
+
+# INVENTORY
+
+func create_inventory() -> void:
+	var none: Item = none_item.instantiate()
+	for y in range(3):
+		var tmp: Array[Item]
+		var tmp2: Array[ItemSlotInformation]
+		for x in range(9):
+			var slotinfo := ItemSlotInformation.new()
+			slotinfo.name = "none"
+			tmp.append(none)
+			tmp2.append(slotinfo)
+		inventory.append(tmp)
+		inventory_infos.append(tmp2)
+	inventory_created = true
+
+func get_inventory_infos() -> Array[ItemSlotInformation]:
+	return inventory_infos
+
+func add_item_to_inventory(item: Item, pos: Vector2i) -> bool:
+	return false
+
+func add_as_many_items_to_inventory(item: Item, name: String, amount: int, stackable: bool) -> int:
+	return 0
 
 # CLICKING
 func perform_left_click(player: Player) -> void:
