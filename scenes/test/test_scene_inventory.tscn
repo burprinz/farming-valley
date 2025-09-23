@@ -38,11 +38,47 @@ position = Vector2(163, 161)
 
 [node name="CornSeeds" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
 position = Vector2(142, 161)
-amount = 800
+amount = 100
 
 [node name="CornSeeds2" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
 position = Vector2(143, 140)
-amount = 599
+amount = 999
+
+[node name="CornSeeds3" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(79, 196)
+amount = 999
+
+[node name="CornSeeds4" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(105, 195)
+amount = 999
+
+[node name="CornSeeds5" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(131, 194)
+amount = 999
+
+[node name="CornSeeds6" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(77, 218)
+amount = 999
+
+[node name="CornSeeds7" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(106, 220)
+amount = 999
+
+[node name="CornSeeds8" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(131, 217)
+amount = 999
+
+[node name="CornSeeds9" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(74, 250)
+amount = 999
+
+[node name="CornSeeds10" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(106, 247)
+amount = 999
+
+[node name="CornSeeds11" parent="Level/DroppedItemsLayer" instance=ExtResource("7_ow3br")]
+position = Vector2(133, 247)
+amount = 999
 
 [node name="Player" parent="Level" instance=ExtResource("8_ihj6m")]
 position = Vector2(203, 169)

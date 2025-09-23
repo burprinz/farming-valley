@@ -37,6 +37,11 @@ func consume_items(item: Item) -> int:
 	amount = add_as_many_items_to_hotbar(item, name, amount, stackable)
 	item.amount = amount
 	
+	if amount == 0:
+		return 0
+		
+	amount = add_as_many_items_to_inventory(item, name, amount, stackable)
+		
 	return amount
 
 
@@ -63,17 +68,9 @@ func add_item_to_hotbar(item: Item, pos: int) -> bool:
 	
 	hotbar[pos] = item
 	
-	var newInfo := ItemSlotInformation.new()
-	newInfo.image = item._get_texture()
-	newInfo.amount = item.amount
-	newInfo.name = item.display_name
-	newInfo.stackable = item.stackable
-	
-	if item is ToolItem:
-		newInfo.tool_type = item.tool
+	create_hotbar_infos(pos)
 	
 	hotbar[pos] = item.duplicate()
-	hotbar_infos[pos] = newInfo
 	hotbar_changed.emit()
 	return true
 
@@ -165,20 +162,50 @@ func create_inventory_infos(pos: Vector2i) -> void:
 	
 	inventory_infos[pos.y][pos.x] = newInfo
 
+func change_selected_inventory_slot(pos: Vector2i) -> void:
+	if GameManager.current_game_state == GameManager.GameStates.inventory:
+		item_from_inventory_clicked(pos)
+
 func add_item_to_inventory(item: Item, pos: Vector2i) -> bool:
 	if !inventory_created:
 		create_inventory()
-	return false
+	
+	if pos.x < 0 || pos.y < 0 || pos.x >= hotbar_length || pos.y >= 3:
+		return false
+		
+	
+	inventory[pos.y][pos.x] = item.duplicate()
+	create_inventory_infos(pos)
+	inventory_changed.emit()
+	return true
 
 func add_as_many_items_to_inventory(item: Item, name: String, amount: int, stackable: bool) -> int:
 	if !inventory_created:
 		create_inventory()
-	return 0
-
-func change_selected_inventory_slot(pos: Vector2i) -> void:
 	
-	if GameManager.current_game_state == GameManager.GameStates.inventory:
-		item_from_inventory_clicked(pos)
+	for y in range(3):
+		var row: Array[ItemSlotInformation] = inventory_infos[y]
+		for x in range(len(row)):
+			if inventory_infos[y][x].name == "none":
+				item.amount = amount
+				add_item_to_inventory(item, Vector2i(x,y))
+				return 0
+			if stackable && inventory_infos[y][x].name == name:
+				var new_amount: int = inventory_infos[y][x].amount + amount
+				if new_amount > Constants.MAX_ITEM_STACK_SIZE:
+					amount = new_amount - Constants.MAX_ITEM_STACK_SIZE
+					new_amount = Constants.MAX_ITEM_STACK_SIZE
+				else:
+					amount = 0
+					
+				inventory[y][x].amount = new_amount
+				inventory_infos[y][x].amount = new_amount
+				inventory_changed.emit()
+			
+			if amount == 0:
+				return 0
+	
+	return amount
 
 # CLICKING
 func perform_left_click(player: Player) -> void:
