@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://n85iesyruc21"]
+
+[ext_resource type="PackedScene" uid="uid://cgbr611xgomtn" path="res://scenes/ui/hotbar.tscn" id="1_vj38m"]
+
+[node name="IngameScreen" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -52.0
+offset_right = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="Hotbar" parent="MarginContainer" instance=ExtResource("1_vj38m")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8

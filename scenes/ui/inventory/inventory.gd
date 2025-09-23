@@ -201,19 +201,109 @@ func _ready() -> void:
 	inventory_labels.append(inventory_labels_2)
 	inventory_labels.append(inventory_labels_3)
 	
+	InventoryManager.inventory_changed.connect(on_inventory_changed)
+	
 
 func on_inventory_changed() -> void:
-	pass
-	#var infos: Array[ItemSlotInformation] = InventoryManager.get_hotbar_infos()
+	var infos: Array[Array] = InventoryManager.get_inventory_infos()
 	
-	#for i in range(InventoryManager.hotbar_length):
-				
-		#if infos[i].name != "none":
-		#	hotbar_icons[i].texture = infos[i].image
-		#	if infos[i].stackable:
-		#		hotbar_labels[i].text = "x" + str(infos[i].amount)
-		#	else:
-		#		hotbar_labels[i].text = ""
-		#else:
-		#	hotbar_icons[i].texture = null
-		#	hotbar_labels[i].text = ""
+	for y in range(len(infos)):
+		var row = infos[y]
+		for x in range(len(row)):
+			var elem: ItemSlotInformation = row[x]
+			if elem.name != "none":
+				inventory_icons[y][x].texture = elem.image
+				if elem.stackable:
+					inventory_labels[y][x].text = "x" + str(elem.amount)
+				else:
+					inventory_labels[y][x].text = ""
+			else:
+				inventory_icons[y][x].texture = null
+				inventory_labels[y][x].text = ""
+	
+
+func inventory_slot_selected(x: int, y: int) -> void:
+	var pos: Vector2i= Vector2i(x-1,y-1)
+	InventoryManager.change_selected_inventory_slot(pos)
+
+
+func _on_hotbar_11_pressed() -> void:
+	inventory_slot_selected(1,1)
+
+func _on_hotbar_21_pressed() -> void:
+	inventory_slot_selected(2,1)
+
+func _on_hotbar_31_pressed() -> void:
+	inventory_slot_selected(3,1)
+
+func _on_hotbar_41_pressed() -> void:
+		inventory_slot_selected(4,1)
+
+func _on_hotbar_51_pressed() -> void:
+		inventory_slot_selected(5,1)
+
+func _on_hotbar_61_pressed() -> void:
+		inventory_slot_selected(6,1)
+
+func _on_hotbar_71_pressed() -> void:
+		inventory_slot_selected(7,1)
+
+func _on_hotbar_81_pressed() -> void:
+		inventory_slot_selected(8,1)
+
+func _on_hotbar_91_pressed() -> void:
+		inventory_slot_selected(9,1)
+
+func _on_hotbar_12_pressed() -> void:
+	inventory_slot_selected(1,2)
+
+func _on_hotbar_22_pressed() -> void:
+	inventory_slot_selected(2,2)
+
+func _on_hotbar_32_pressed() -> void:
+	inventory_slot_selected(3,2)
+
+func _on_hotbar_42_pressed() -> void:
+	inventory_slot_selected(4,2)
+
+func _on_hotbar_52_pressed() -> void:
+	inventory_slot_selected(5,2)
+
+func _on_hotbar_62_pressed() -> void:
+	inventory_slot_selected(6,2)
+
+func _on_hotbar_72_pressed() -> void:
+	inventory_slot_selected(7,2)
+
+func _on_hotbar_82_pressed() -> void:
+	inventory_slot_selected(8,2)
+
+func _on_hotbar_92_pressed() -> void:
+	inventory_slot_selected(9,2)
+
+func _on_hotbar_13_pressed() -> void:
+	inventory_slot_selected(1,3)
+
+func _on_hotbar_23_pressed() -> void:
+	inventory_slot_selected(2,3)
+
+func _on_hotbar_33_pressed() -> void:
+	inventory_slot_selected(3,3)
+
+func _on_hotbar_43_pressed() -> void:
+	inventory_slot_selected(4,3)
+
+func _on_hotbar_53_pressed() -> void:
+	inventory_slot_selected(5,3)
+
+func _on_hotbar_63_pressed() -> void:
+	inventory_slot_selected(6,3)
+
+func _on_hotbar_73_pressed() -> void:
+	inventory_slot_selected(7,3)
+
+func _on_hotbar_83_pressed() -> void:
+	inventory_slot_selected(8,3)
+
+func _on_hotbar_93_pressed() -> void:
+	inventory_slot_selected(9,3)

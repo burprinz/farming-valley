@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c343oihnn18he" path="res://scenes/components/tools_cursor_component.tscn" id="1_fc1tj"]
 [ext_resource type="TileSet" uid="uid://cxpsd7ox64hp6" path="res://tilesets/game_tile_set.tres" id="1_oc2co"]
 [ext_resource type="PackedScene" uid="uid://djte8g4b22bkt" path="res://scenes/layers/farm_land_layer.tscn" id="2_nalqf"]
-[ext_resource type="PackedScene" uid="uid://c3lav1qtkr4i3" path="res://scenes/ui/game_screen.tscn" id="3_nalqf"]
+[ext_resource type="PackedScene" uid="uid://c3lav1qtkr4i3" path="res://scenes/ui/screens/game_screen.tscn" id="3_nalqf"]
 [ext_resource type="PackedScene" uid="uid://d0nspt7mdayrh" path="res://scenes/characters/player/player.tscn" id="3_x2a7w"]
 [ext_resource type="PackedScene" uid="uid://76ngug1p63qw" path="res://scenes/layers/dropped_items_layer.tscn" id="4_56h2t"]
 [ext_resource type="PackedScene" uid="uid://o4ruusl7pnb8" path="res://scenes/items/tools/stone_axe.tscn" id="6_irfcj"]

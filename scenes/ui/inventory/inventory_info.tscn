@@ -1,0 +1,384 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw4cs4alscfu1"]
+
+[ext_resource type="Theme" uid="uid://c1381xujec7ub" path="res://scenes/ui/game_ui_theme.tres" id="1_3dfqd"]
+[ext_resource type="Texture2D" uid="uid://dypgmqkcyd0jy" path="res://assets/luiskun/ui/character_demo.png" id="2_4esb2"]
+[ext_resource type="Script" uid="uid://d2isktr6b63jl" path="res://scenes/ui/inventory/inventory_info.gd" id="2_gk6i0"]
+
+[node name="InventoryInfo" type="PanelContainer" groups=["inventory_info"]]
+custom_minimum_size = Vector2(286, 100)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -100.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme = ExtResource("1_3dfqd")
+theme_type_variation = &"PlayerMenuBackgroundPanel"
+script = ExtResource("2_gk6i0")
+
+[node name="Character" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Armor" type="VBoxContainer" parent="Character"]
+layout_mode = 2
+
+[node name="Head" type="Button" parent="Character/Armor"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="HeadIcon" type="TextureRect" parent="Character/Armor/Head"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HeadLabel" type="Label" parent="Character/Armor/Head"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Chest" type="Button" parent="Character/Armor"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="ChestIcon" type="TextureRect" parent="Character/Armor/Chest"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="ChestLabel" type="Label" parent="Character/Armor/Chest"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Legs" type="Button" parent="Character/Armor"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="LegsIcon" type="TextureRect" parent="Character/Armor/Legs"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="LegsLabel" type="Label" parent="Character/Armor/Legs"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Feet" type="Button" parent="Character/Armor"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="FeetIcon" type="TextureRect" parent="Character/Armor/Feet"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="FeetLabel" type="Label" parent="Character/Armor/Feet"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="View" type="PanelContainer" parent="Character"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_type_variation = &"DarkWoodPanel"
+
+[node name="TextureRect" type="TextureRect" parent="Character/View"]
+layout_mode = 2
+texture = ExtResource("2_4esb2")
+
+[node name="Accessoires" type="VBoxContainer" parent="Character"]
+layout_mode = 2
+
+[node name="Ring01" type="Button" parent="Character/Accessoires"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="Ring01Icon" type="TextureRect" parent="Character/Accessoires/Ring01"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Ring01Label" type="Label" parent="Character/Accessoires/Ring01"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Ring02" type="Button" parent="Character/Accessoires"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="Ring02Icon" type="TextureRect" parent="Character/Accessoires/Ring02"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Ring02Label" type="Label" parent="Character/Accessoires/Ring02"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Ring03" type="Button" parent="Character/Accessoires"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="Ring03Icon" type="TextureRect" parent="Character/Accessoires/Ring03"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Ring03Label" type="Label" parent="Character/Accessoires/Ring03"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Ring04" type="Button" parent="Character/Accessoires"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="Ring04Icon" type="TextureRect" parent="Character/Accessoires/Ring04"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Ring04Label" type="Label" parent="Character/Accessoires/Ring04"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="Ring05" type="Button" parent="Character/Accessoires"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"ToolButton"
+
+[node name="Ring04Icon" type="TextureRect" parent="Character/Accessoires/Ring05"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Ring04Label" type="Label" parent="Character/Accessoires/Ring05"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="CurItem" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+theme_type_variation = &"InfoLabel"
+
+[node name="CurItemIcon" type="TextureRect" parent="VBoxContainer/CurItem"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="CurItemLabel" type="Label" parent="VBoxContainer/CurItem"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"ItemAmountLabel"

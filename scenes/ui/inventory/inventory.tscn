@@ -1,19 +1,30 @@
 [gd_scene load_steps=3 format=3 uid="uid://tslygl38ns6d"]
 
 [ext_resource type="Theme" uid="uid://c1381xujec7ub" path="res://scenes/ui/game_ui_theme.tres" id="1_s6ek7"]
-[ext_resource type="Script" uid="uid://cwv67lkylfl1" path="res://scenes/ui/inventory.gd" id="2_avmd0"]
+[ext_resource type="Script" uid="uid://cwv67lkylfl1" path="res://scenes/ui/inventory/inventory.gd" id="2_avmd0"]
 
 [node name="Inventory" type="PanelContainer"]
-offset_right = 280.0
-offset_bottom = 118.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -126.0
+offset_right = 143.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme = ExtResource("1_s6ek7")
 theme_type_variation = &"DarkWoodPanel"
 script = ExtResource("2_avmd0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
@@ -21,6 +32,8 @@ theme_override_constants/margin_bottom = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [node name="TopRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -950,3 +963,29 @@ grow_vertical = 0
 theme_type_variation = &"ItemAmountLabel"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar11" to="." method="_on_hotbar_11_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar21" to="." method="_on_hotbar_21_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar31" to="." method="_on_hotbar_31_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar41" to="." method="_on_hotbar_41_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar51" to="." method="_on_hotbar_51_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar61" to="." method="_on_hotbar_61_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar71" to="." method="_on_hotbar_71_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar81" to="." method="_on_hotbar_81_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopRow/Hotbar91" to="." method="_on_hotbar_91_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar12" to="." method="_on_hotbar_12_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar22" to="." method="_on_hotbar_22_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar32" to="." method="_on_hotbar_32_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar42" to="." method="_on_hotbar_42_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar52" to="." method="_on_hotbar_52_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar62" to="." method="_on_hotbar_62_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar72" to="." method="_on_hotbar_72_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar82" to="." method="_on_hotbar_82_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MidRow/Hotbar92" to="." method="_on_hotbar_92_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar13" to="." method="_on_hotbar_13_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar23" to="." method="_on_hotbar_23_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar33" to="." method="_on_hotbar_33_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar43" to="." method="_on_hotbar_43_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar53" to="." method="_on_hotbar_53_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar63" to="." method="_on_hotbar_63_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar73" to="." method="_on_hotbar_73_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar83" to="." method="_on_hotbar_83_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotRow/Hotbar93" to="." method="_on_hotbar_93_pressed"]

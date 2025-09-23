@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bteamn8ml3s0x" path="res://scenes/items/tools/watering_can.tscn" id="6_oqdel"]
 [ext_resource type="PackedScene" uid="uid://cywtyijt0saan" path="res://scenes/items/nature/seeds/corn_seeds.tscn" id="7_ow3br"]
 [ext_resource type="PackedScene" uid="uid://d0nspt7mdayrh" path="res://scenes/characters/player/player.tscn" id="8_ihj6m"]
-[ext_resource type="PackedScene" uid="uid://3qb2qnymg4l5" path="res://scenes/ui/inventory_screen.tscn" id="9_k3mgn"]
+[ext_resource type="PackedScene" uid="uid://c3lav1qtkr4i3" path="res://scenes/ui/screens/game_screen.tscn" id="10_5jne3"]
 
 [node name="TestSceneInventory" type="Node2D"]
 
@@ -45,8 +45,8 @@ position = Vector2(143, 140)
 amount = 599
 
 [node name="Player" parent="Level" instance=ExtResource("8_ihj6m")]
-position = Vector2(184, 214)
+position = Vector2(203, 169)
 
 [node name="Camera2D" type="Camera2D" parent="Level/Player"]
 
-[node name="InventoryScreen" parent="Level" instance=ExtResource("9_k3mgn")]
+[node name="GameScreen" parent="Level" instance=ExtResource("10_5jne3")]

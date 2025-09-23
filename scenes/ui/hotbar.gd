@@ -71,9 +71,8 @@ func _ready() -> void:
 
 func on_hotbar_changed() -> void:
 	var infos: Array[ItemSlotInformation] = InventoryManager.get_hotbar_infos()
-	
+
 	for i in range(InventoryManager.hotbar_length):
-				
 		if infos[i].name != "none":
 			hotbar_icons[i].texture = infos[i].image
 			if infos[i].stackable:
@@ -84,29 +83,30 @@ func on_hotbar_changed() -> void:
 			hotbar_icons[i].texture = null
 			hotbar_labels[i].text = ""
 
+
 func _on_hotbar_01_pressed() -> void:
-	InventoryManager.change_selected_slot(0)
+	InventoryManager.change_selected_hotbar_slot(0)
 
 func _on_hotbar_02_pressed() -> void:
-	InventoryManager.change_selected_slot(1)
+	InventoryManager.change_selected_hotbar_slot(1)
 
 func _on_hotbar_03_pressed() -> void:
-	InventoryManager.change_selected_slot(2)
+	InventoryManager.change_selected_hotbar_slot(2)
 
 func _on_hotbar_04_pressed() -> void:
-	InventoryManager.change_selected_slot(3)
+	InventoryManager.change_selected_hotbar_slot(3)
 
 func _on_hotbar_05_pressed() -> void:
-	InventoryManager.change_selected_slot(4)
+	InventoryManager.change_selected_hotbar_slot(4)
 
 func _on_hotbar_06_pressed() -> void:
-	InventoryManager.change_selected_slot(5)
+	InventoryManager.change_selected_hotbar_slot(5)
 
 func _on_hotbar_07_pressed() -> void:
-		InventoryManager.change_selected_slot(6)
+		InventoryManager.change_selected_hotbar_slot(6)
 
 func _on_hotbar_08_pressed() -> void:
-	InventoryManager.change_selected_slot(7)
+	InventoryManager.change_selected_hotbar_slot(7)
 
 func _on_hotbar_09_pressed() -> void:
-	InventoryManager.change_selected_slot(8)
+	InventoryManager.change_selected_hotbar_slot(8)

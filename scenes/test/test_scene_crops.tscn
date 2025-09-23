@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bteamn8ml3s0x" path="res://scenes/items/tools/watering_can.tscn" id="7_5xne8"]
 [ext_resource type="PackedScene" uid="uid://cywtyijt0saan" path="res://scenes/items/nature/seeds/corn_seeds.tscn" id="9_5ko52"]
 [ext_resource type="PackedScene" uid="uid://d0nspt7mdayrh" path="res://scenes/characters/player/player.tscn" id="9_eek1i"]
-[ext_resource type="PackedScene" uid="uid://c3lav1qtkr4i3" path="res://scenes/ui/game_screen.tscn" id="10_7ith5"]
+[ext_resource type="PackedScene" uid="uid://c3lav1qtkr4i3" path="res://scenes/ui/screens/game_screen.tscn" id="10_7ith5"]
 
 [node name="TestSceneHotbar" type="Node2D"]
 

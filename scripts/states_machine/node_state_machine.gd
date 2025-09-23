@@ -22,14 +22,16 @@ func _ready() -> void:
 		current_node_state_name = current_node_state.name.to_lower()
 
 func _process(delta : float) -> void:
-	if current_node_state:
-		current_node_state._on_process(delta)
+	if GameManager.current_game_state == GameManager.GameStates.ingame:
+		if current_node_state:
+			current_node_state._on_process(delta)
 
 
 func _physics_process(delta: float) -> void:
-	if current_node_state:
-		current_node_state._on_physics_process(delta)
-		current_node_state._on_next_transitions()
+	if GameManager.current_game_state == GameManager.GameStates.ingame:
+		if current_node_state:
+			current_node_state._on_physics_process(delta)
+			current_node_state._on_next_transitions()
 
 func transition_to(node_state_name : String) -> void:
 	if node_state_name == current_node_state.name.to_lower():
