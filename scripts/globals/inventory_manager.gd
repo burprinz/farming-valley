@@ -130,6 +130,17 @@ func change_selected_hotbar_slot(new_slot: int) -> void:
 	elif GameManager.current_game_state == GameManager.GameStates.inventory:
 		item_from_hotbar_clicked(new_slot)
 
+func remove_items_from_current_hotbar_slot(am: int) -> void:
+	if hotbar_infos[selected_hotbar_slot].name == "none":
+		return
+	
+	hotbar_infos[selected_hotbar_slot].amount -= am
+	hotbar[selected_hotbar_slot].amount -= am
+	if hotbar_infos[selected_hotbar_slot].amount <= 0:
+		hotbar[selected_hotbar_slot] = null
+		var slotinfo := ItemSlotInformation.new()
+		slotinfo.name = "none"
+		hotbar_infos[selected_hotbar_slot] = slotinfo
 
 # INVENTORY
 

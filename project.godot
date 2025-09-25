@@ -24,6 +24,7 @@ DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 DiscordManager="*res://scripts/globals/discord_manager.gd"
 DataManager="*res://scripts/globals/data_manager.gd"
 DayAndNightCycleManager="*res://scripts/globals/day_and_night_cycle_manager.gd"
+CropfieldManager="*res://scripts/globals/cropfield_manager.gd"
 
 [display]
 
@@ -56,6 +57,8 @@ player=""
 mouse_cursor_component=""
 game_screen=""
 inventory_info=""
+crop_layer=""
+item_drop_layer=""
 
 [input]
 

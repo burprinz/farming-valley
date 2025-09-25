@@ -16,4 +16,4 @@ func change_discord_integration() -> void:
 	DiscordRPC.small_image_text = DataManager.discord_small_image_text
 	
 	DiscordRPC.refresh()
-	Log.DEBUG("Discord Integration updated to " + DataManager.discord_details)
+	Log.DEBUG("Discord Integration updated")

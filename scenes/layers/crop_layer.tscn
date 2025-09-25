@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqvbtaqcgfiwx"]
+
+[ext_resource type="Script" uid="uid://dscu0h1f24b8p" path="res://scenes/layers/crop_layer.gd" id="1_1b5rt"]
+
+[node name="CropLayer" type="Node" groups=["crop_layer"]]
+script = ExtResource("1_1b5rt")

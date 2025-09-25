@@ -1,3 +1,3 @@
 [gd_scene format=3 uid="uid://76ngug1p63qw"]
 
-[node name="DroppedItemsLayer" type="Node"]
+[node name="DroppedItemsLayer" type="Node" groups=["item_drop_layer"]]

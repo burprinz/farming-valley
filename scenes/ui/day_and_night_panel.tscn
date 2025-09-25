@@ -76,12 +76,14 @@ offset_bottom = 14.0
 texture = SubResource("AtlasTexture_k3f4j")
 
 [node name="FastSpeedButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 27.0
 offset_right = 53.0
 offset_bottom = 18.0
 theme_type_variation = &"ImageButton"
 
 [node name="TextureRect2" type="TextureRect" parent="Control/FastSpeedButton"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 2.0
 offset_right = 14.0
@@ -89,6 +91,7 @@ offset_bottom = 14.0
 texture = SubResource("AtlasTexture_k3f4j")
 
 [node name="TextureRect" type="TextureRect" parent="Control/FastSpeedButton"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 2.0
 offset_right = 19.0
@@ -96,12 +99,14 @@ offset_bottom = 14.0
 texture = SubResource("AtlasTexture_k3f4j")
 
 [node name="CheaterSpeedButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 54.0
 offset_right = 80.0
 offset_bottom = 18.0
 theme_type_variation = &"ImageButton"
 
 [node name="TextureRect3" type="TextureRect" parent="Control/CheaterSpeedButton"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 2.0
 offset_right = 12.0
@@ -109,6 +114,7 @@ offset_bottom = 14.0
 texture = SubResource("AtlasTexture_k3f4j")
 
 [node name="TextureRect" type="TextureRect" parent="Control/CheaterSpeedButton"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 2.0
 offset_right = 17.0
@@ -116,6 +122,7 @@ offset_bottom = 14.0
 texture = SubResource("AtlasTexture_k3f4j")
 
 [node name="TextureRect2" type="TextureRect" parent="Control/CheaterSpeedButton"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 2.0
 offset_right = 22.0

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjs25to1bea14"]
+
+[ext_resource type="Texture2D" uid="uid://bqjpxclbi6dbo" path="res://assets/sproutlands/items/materials/corn.png" id="1_q3vb2"]
+[ext_resource type="Script" uid="uid://cc4hpj3h8dqjo" path="res://scenes/items/materials/corn.gd" id="1_xdrjr"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="3_nqiuy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdtju"]
+radius = 8.0
+
+[node name="Corn" type="Sprite2D"]
+texture = ExtResource("1_q3vb2")
+script = ExtResource("1_xdrjr")
+display_name = "Corn"
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("3_nqiuy")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_vdtju")
