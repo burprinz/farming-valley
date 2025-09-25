@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cw4cs4alscfu1" path="res://scenes/ui/inventory/inventory_info.tscn" id="1_4nlxu"]
 [ext_resource type="PackedScene" uid="uid://tslygl38ns6d" path="res://scenes/ui/inventory/inventory.tscn" id="1_7d1lc"]
-[ext_resource type="PackedScene" uid="uid://cgbr611xgomtn" path="res://scenes/ui/hotbar.tscn" id="2_4nlxu"]
+[ext_resource type="PackedScene" uid="uid://cgbr611xgomtn" path="res://scenes/ui/bars/hotbar.tscn" id="2_4nlxu"]
 
 [node name="InventoryScreen" type="CanvasLayer"]
 

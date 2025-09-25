@@ -18,3 +18,18 @@ func _process(delta: float) -> void:
 		elif current_game_state == GameStates.inventory:
 			current_game_state = GameStates.ingame
 			game_state_changed.emit()
+	elif Input.is_action_just_pressed("pause"):
+		if current_game_state == GameStates.ingame:
+			current_game_state = GameStates.pause
+			game_state_changed.emit()
+		elif current_game_state == GameStates.pause:
+			current_game_state = GameStates.ingame
+			game_state_changed.emit()
+		elif current_game_state == GameStates.inventory:
+			current_game_state = GameStates.ingame
+			game_state_changed.emit()
+
+
+func change_game_state(new_state: GameStates):
+	current_game_state = new_state
+	game_state_changed.emit()

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://df2kh13raqrdx"]
+
+[ext_resource type="Theme" uid="uid://c1381xujec7ub" path="res://scenes/ui/game_ui_theme.tres" id="1_fn840"]
+[ext_resource type="Script" uid="uid://m11f348cxn0j" path="res://scenes/ui/pause/pause_main.gd" id="2_p5yat"]
+
+[node name="PauseMain" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fn840")
+script = ExtResource("2_p5yat")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 22
+
+[node name="BackToGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TextButton"
+text = "Back to game"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TextButton"
+text = "Settings"
+
+[node name="SaveAndQuit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TextButton"
+text = "Save and Quit"
+
+[connection signal="pressed" from="VBoxContainer/BackToGameButton" to="." method="_on_back_to_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveAndQuit" to="." method="_on_save_and_quit_pressed"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://brofunsiuos61"]
+
+[ext_resource type="Script" uid="uid://b41jx0dfqh4se" path="res://scenes/ui/pause/settings/discord_settings.gd" id="1_wt64q"]
+[ext_resource type="Theme" uid="uid://c1381xujec7ub" path="res://scenes/ui/game_ui_theme.tres" id="1_y3c34"]
+
+[node name="DiscordSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y3c34")
+script = ExtResource("1_wt64q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"SquareLabel"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Discord Activity"
+
+[node name="Details" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25.65)
+layout_mode = 2
+theme_type_variation = &"SettingsEdit"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+placeholder_text = "Details"
+
+[node name="LargeText" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25.65)
+layout_mode = 2
+theme_type_variation = &"SettingsEdit"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+placeholder_text = "Large Image Text"
+
+[node name="SmallText" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25.65)
+layout_mode = 2
+theme_type_variation = &"SettingsEdit"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+placeholder_text = "Small Image Text"
+
+[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TinyTextButton"
+text = "Save"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

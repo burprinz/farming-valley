@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3lav1qtkr4i3"]
+[gd_scene load_steps=5 format=3 uid="uid://c3lav1qtkr4i3"]
 
 [ext_resource type="PackedScene" uid="uid://n85iesyruc21" path="res://scenes/ui/screens/ingame_screen.tscn" id="1_cyk1d"]
 [ext_resource type="Script" uid="uid://cnuafbyvd7uyl" path="res://scenes/ui/screens/game_screen.gd" id="1_jt3ui"]
+[ext_resource type="PackedScene" uid="uid://b0h72mkl6gf5t" path="res://scenes/ui/screens/pause_screen.tscn" id="2_2bb1e"]
 [ext_resource type="PackedScene" uid="uid://3qb2qnymg4l5" path="res://scenes/ui/screens/inventory_screen.tscn" id="2_hg2ab"]
 
 [node name="GameScreen" type="CanvasLayer" groups=["game_screen"]]
 script = ExtResource("1_jt3ui")
+
+[node name="PauseScreen" parent="." instance=ExtResource("2_2bb1e")]
 
 [node name="IngameScreen" parent="." instance=ExtResource("1_cyk1d")]
 
