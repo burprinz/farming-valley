@@ -59,6 +59,7 @@ game_screen=""
 inventory_info=""
 crop_layer=""
 item_drop_layer=""
+machine_layer=""
 
 [input]
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci26e6nah072o"]
+
+[ext_resource type="Script" uid="uid://dm8kqr8fw40ut" path="res://scenes/layers/machine_layer.gd" id="1_1io8f"]
+
+[node name="MachineLayer" type="TileMapLayer" groups=["machine_layer"]]
+script = ExtResource("1_1io8f")

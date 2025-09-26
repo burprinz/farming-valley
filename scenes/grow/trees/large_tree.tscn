@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://g2fgcivvuq47"]
+
+[ext_resource type="Material" uid="uid://bj1ycvfne3vq1" path="res://scenes/grow/trees/shake.tres" id="1_0rbyk"]
+[ext_resource type="Script" uid="uid://cn2bmbibg177j" path="res://scenes/grow/trees/large_tree.gd" id="3_0rbyk"]
+[ext_resource type="Script" uid="uid://bbeffantdjgdq" path="res://scenes/components/component_scripts/hurt_component.gd" id="4_4huts"]
+[ext_resource type="PackedScene" uid="uid://c3yyb581n7d5m" path="res://scenes/components/damage_component.tscn" id="5_did2m"]
+[ext_resource type="PackedScene" uid="uid://babjxq2bnwwol" path="res://scenes/components/item_drop_component.tscn" id="6_n45gr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kq64o"]
+load_path = "res://.godot/imported/basic_grass_biom_things.png-0cea56e46c15b7de2e722f64048a3c54.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rbyk"]
+atlas = SubResource("CompressedTexture2D_kq64o")
+region = Rect2(16, 0, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3e4wd"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_junxy"]
+size = Vector2(8, 22.5)
+
+[node name="LargeTree" type="Sprite2D"]
+material = ExtResource("1_0rbyk")
+position = Vector2(0, -12)
+texture = SubResource("AtlasTexture_0rbyk")
+script = ExtResource("3_0rbyk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_3e4wd")
+
+[node name="HurtComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("4_4huts")
+tool = 3
+metadata/_custom_type_script = "uid://bbeffantdjgdq"
+
+[node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, 3.25)
+shape = SubResource("RectangleShape2D_junxy")
+debug_color = Color(0.904162, 0.000142467, 0.750758, 0.42)
+
+[node name="DamageComponent" parent="." instance=ExtResource("5_did2m")]
+max_damage = 5
+
+[node name="ItemDropComponent" parent="." instance=ExtResource("6_n45gr")]
+
+[connection signal="area_entered" from="HurtComponent" to="HurtComponent" method="_on_area_entered"]

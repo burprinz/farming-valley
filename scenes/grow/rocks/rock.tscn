@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxygrdsr8der4"]
+
+[ext_resource type="Script" uid="uid://d1n6mwyrhyhnj" path="res://scenes/grow/rocks/rock.gd" id="1_5imrt"]
+[ext_resource type="Script" uid="uid://bbeffantdjgdq" path="res://scenes/components/component_scripts/hurt_component.gd" id="3_dueg2"]
+[ext_resource type="PackedScene" uid="uid://c3yyb581n7d5m" path="res://scenes/components/damage_component.tscn" id="4_bwdgb"]
+[ext_resource type="PackedScene" uid="uid://babjxq2bnwwol" path="res://scenes/components/item_drop_component.tscn" id="5_okr5x"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vmfaq"]
+load_path = "res://.godot/imported/basic_grass_biom_things.png-0cea56e46c15b7de2e722f64048a3c54.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5imrt"]
+atlas = SubResource("CompressedTexture2D_vmfaq")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3e4wd"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vmfaq"]
+radius = 7.01783
+
+[node name="Rock" type="Sprite2D"]
+position = Vector2(0, -5)
+texture = SubResource("AtlasTexture_5imrt")
+script = ExtResource("1_5imrt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_3e4wd")
+
+[node name="HurtComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("3_dueg2")
+tool = 2
+metadata/_custom_type_script = "uid://bbeffantdjgdq"
+
+[node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_vmfaq")
+debug_color = Color(0.904162, 0.000142467, 0.750758, 0.42)
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_bwdgb")]
+max_damage = 4
+
+[node name="ItemDropComponent" parent="." instance=ExtResource("5_okr5x")]
+
+[connection signal="area_entered" from="HurtComponent" to="HurtComponent" method="_on_area_entered"]

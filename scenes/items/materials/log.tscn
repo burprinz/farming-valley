@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://djinn7vnf1qhg"]
+
+[ext_resource type="Texture2D" uid="uid://do3ipe212nqw3" path="res://assets/sproutlands/items/materials/log.png" id="1_kybdm"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="2_mp5ud"]
+[ext_resource type="Script" uid="uid://j8p3c6e8r0ud" path="res://scenes/items/materials/log.gd" id="2_xfoau"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfoau"]
+radius = 7.07107
+
+[node name="Log" type="Sprite2D"]
+texture = ExtResource("1_kybdm")
+script = ExtResource("2_xfoau")
+display_name = "Log"
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("2_mp5ud")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_xfoau")

@@ -54,6 +54,8 @@ func harvest_plant() -> void:
 	#drop.amount = 1
 	harvest_item.global_position = global_position
 	
+	CropfieldManager.remove_crop(cell_position)
+	
 	layer.add_child(harvest_item)
 		
 func water_crop() -> void:

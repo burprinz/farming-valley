@@ -141,7 +141,8 @@ func remove_items_from_current_hotbar_slot(am: int) -> void:
 		var slotinfo := ItemSlotInformation.new()
 		slotinfo.name = "none"
 		hotbar_infos[selected_hotbar_slot] = slotinfo
-
+	
+	hotbar_changed.emit()
 # INVENTORY
 
 func create_inventory() -> void:

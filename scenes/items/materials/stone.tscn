@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct1k4jmfd3fxu"]
+
+[ext_resource type="Script" uid="uid://bnituxqi76c4p" path="res://scenes/items/materials/stone.gd" id="1_hh8e4"]
+[ext_resource type="Texture2D" uid="uid://c0d8fdu7utujk" path="res://assets/sproutlands/items/materials/stone.png" id="1_rb0dt"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="2_rb0dt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4pu5"]
+radius = 6.0
+
+[node name="Stone" type="Sprite2D"]
+texture = ExtResource("1_rb0dt")
+script = ExtResource("1_hh8e4")
+display_name = "Stone"
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("2_rb0dt")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_o4pu5")

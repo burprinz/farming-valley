@@ -536,6 +536,8 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 hit_component_collision_shape = NodePath("../../HitComponent/PlayerHitShape")
 
 [node name="HitComponent" parent="." instance=ExtResource("14_hv5x3")]
+collision_layer = 8
+collision_mask = 16
 
 [node name="PlayerHitShape" type="CollisionShape2D" parent="HitComponent"]
 position = Vector2(11, -2)
