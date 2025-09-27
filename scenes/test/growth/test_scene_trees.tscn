@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3lav1qtkr4i3" path="res://scenes/ui/screens/game_screen.tscn" id="6_8al2r"]
 [ext_resource type="PackedScene" uid="uid://gs7vwxfkyw8g" path="res://scenes/grow/trees/small_tree.tscn" id="6_a5ev7"]
 [ext_resource type="PackedScene" uid="uid://g2fgcivvuq47" path="res://scenes/grow/trees/large_tree.tscn" id="7_8al2r"]
-[ext_resource type="Shader" uid="uid://brfj6jow2wbq3" path="res://scenes/grow/trees/shake.gdshader" id="7_p4swk"]
+[ext_resource type="Shader" uid="uid://brfj6jow2wbq3" path="res://scenes/grow/shake.gdshader" id="7_p4swk"]
 [ext_resource type="PackedScene" uid="uid://o4ruusl7pnb8" path="res://scenes/items/tools/stone_axe.tscn" id="10_p4swk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8al2r"]

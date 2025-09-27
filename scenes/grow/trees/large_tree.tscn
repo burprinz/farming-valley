@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://g2fgcivvuq47"]
 
-[ext_resource type="Material" uid="uid://bj1ycvfne3vq1" path="res://scenes/grow/trees/shake.tres" id="1_0rbyk"]
+[ext_resource type="Material" uid="uid://bj1ycvfne3vq1" path="res://scenes/grow/shake.tres" id="1_0rbyk"]
 [ext_resource type="Script" uid="uid://cn2bmbibg177j" path="res://scenes/grow/trees/large_tree.gd" id="3_0rbyk"]
 [ext_resource type="Script" uid="uid://bbeffantdjgdq" path="res://scenes/components/component_scripts/hurt_component.gd" id="4_4huts"]
 [ext_resource type="PackedScene" uid="uid://c3yyb581n7d5m" path="res://scenes/components/damage_component.tscn" id="5_did2m"]
@@ -20,6 +20,7 @@ radius = 4.0
 size = Vector2(8, 22.5)
 
 [node name="LargeTree" type="Sprite2D"]
+y_sort_enabled = true
 material = ExtResource("1_0rbyk")
 position = Vector2(0, -12)
 texture = SubResource("AtlasTexture_0rbyk")

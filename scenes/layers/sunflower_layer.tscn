@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bgh8o764k7a4n"]
+
+[node name="SunflowerLayer" type="TileMapLayer"]
+y_sort_enabled = true
+y_sort_origin = 10

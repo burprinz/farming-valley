@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvyjeb4771ykf"]
+
+[ext_resource type="Material" uid="uid://bj1ycvfne3vq1" path="res://scenes/grow/shake.tres" id="1_px2cc"]
+[ext_resource type="Texture2D" uid="uid://cu68pjauiu0ru" path="res://assets/sproutlands/tilesets/basic_grass_biom_things.png" id="1_qk733"]
+[ext_resource type="Script" uid="uid://vyd5m7pgqoms" path="res://scenes/grow/nature/sunflower.gd" id="2_5k3l1"]
+[ext_resource type="PackedScene" uid="uid://6cftipeouhgo" path="res://scenes/components/interactable_component.tscn" id="3_ux32c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k3l1"]
+atlas = ExtResource("1_qk733")
+region = Rect2(128, 32, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px2cc"]
+size = Vector2(8, 10)
+
+[node name="Sunflower" type="Sprite2D"]
+y_sort_enabled = true
+material = ExtResource("1_px2cc")
+position = Vector2(0, -11)
+texture = SubResource("AtlasTexture_5k3l1")
+script = ExtResource("2_5k3l1")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_ux32c")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_px2cc")

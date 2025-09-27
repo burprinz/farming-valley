@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://djte8g4b22bkt"]
 
 [ext_resource type="TileSet" uid="uid://cxpsd7ox64hp6" path="res://tilesets/game_tile_set.tres" id="1_5lm2j"]
-[ext_resource type="Script" uid="uid://cx8owb7odhfbr" path="res://scenes/layers/farm_land_layer.gd" id="1_t3gvc"]
+[ext_resource type="Script" uid="uid://cx8owb7odhfbr" path="res://scenes/layers/scripts/farm_land_layer.gd" id="1_t3gvc"]
 
 [node name="FarmLandLayer" type="TileMapLayer" groups=["farmland_layer"]]
 tile_set = ExtResource("1_5lm2j")

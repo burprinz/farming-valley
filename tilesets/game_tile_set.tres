@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cxpsd7ox64hp6"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://cxpsd7ox64hp6"]
 
 [ext_resource type="Texture2D" uid="uid://dyhew7jharc3q" path="res://assets/sproutlands/tilesets/water.png" id="1_tjtrf"]
 [ext_resource type="Texture2D" uid="uid://cltr514gygddn" path="res://assets/sproutlands/tilesets/grass.png" id="2_tkbyn"]
 [ext_resource type="Texture2D" uid="uid://dmkvb1ygdfpqd" path="res://assets/sproutlands/tilesets/tilled_dirt_wide_cropfield.png" id="3_v1amf"]
+[ext_resource type="Texture2D" uid="uid://cu68pjauiu0ru" path="res://assets/sproutlands/tilesets/basic_grass_biom_things.png" id="4_7cqdy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkbyn"]
 texture = ExtResource("1_tjtrf")
@@ -443,6 +444,25 @@ texture = ExtResource("3_v1amf")
 0:3/0/terrain = 2
 0:3/0/terrains_peering_bit/right_side = 2
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pudl8"]
+texture = ExtResource("4_7cqdy")
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+6:1/0 = 0
+5:1/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+6:3/0 = 0
+8:2/size_in_atlas = Vector2i(1, 2)
+8:2/0 = 0
+8:2/0/y_sort_origin = 10
+8:4/0 = 0
+7:4/0 = 0
+5:3/0 = 0
+
 [resource]
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass Terrain"
@@ -454,3 +474,4 @@ terrain_set_0/terrain_2/color = Color(0, 0.578518, 0.0668758, 1)
 sources/0 = SubResource("TileSetAtlasSource_tkbyn")
 sources/1 = SubResource("TileSetAtlasSource_v1amf")
 sources/2 = SubResource("TileSetAtlasSource_7cqdy")
+sources/3 = SubResource("TileSetAtlasSource_pudl8")

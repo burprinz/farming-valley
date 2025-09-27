@@ -8,6 +8,7 @@
 size = Vector2(12, 7.5)
 
 [node name="Crop" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ih7pc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
