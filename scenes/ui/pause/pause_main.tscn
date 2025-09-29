@@ -28,11 +28,17 @@ layout_mode = 2
 theme_type_variation = &"TextButton"
 text = "Settings"
 
-[node name="SaveAndQuit" type="Button" parent="VBoxContainer"]
+[node name="Statistics" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TextButton"
+text = "Statistics"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"TextButton"
 text = "Save and Quit"
 
 [connection signal="pressed" from="VBoxContainer/BackToGameButton" to="." method="_on_back_to_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/SaveAndQuit" to="." method="_on_save_and_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Statistics" to="." method="_on_statistics_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_save_and_quit_pressed"]

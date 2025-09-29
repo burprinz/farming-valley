@@ -9,3 +9,5 @@ enum ToolTypes {
 	WateringCan,
 	Seeds
 }
+
+const ToolNames: Array[String] = ["None", "Sword", "Pickaxe", "Axe", "Hoe", "Watering Can", "Seeds"]

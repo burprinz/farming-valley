@@ -19,6 +19,8 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Settings"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
@@ -26,6 +28,14 @@ theme_override_constants/margin_bottom = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="BackButton" type="Button" parent="Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"TinyTextButton"
+text = "Back"
 
 [node name="DiscordButton" type="Button" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -37,4 +47,5 @@ text = "Discord Activity"
 visible = false
 layout_mode = 2
 
+[connection signal="pressed" from="Settings/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Settings/MarginContainer/VBoxContainer/DiscordButton" to="." method="_on_discord_button_pressed"]

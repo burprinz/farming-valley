@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Farming Valley"
+run/main_scene="uid://umrt2oc0b2hu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,11 +26,13 @@ DiscordManager="*res://scripts/globals/discord_manager.gd"
 DataManager="*res://scripts/globals/data_manager.gd"
 DayAndNightCycleManager="*res://scripts/globals/day_and_night_cycle_manager.gd"
 CropfieldManager="*res://scripts/globals/cropfield_manager.gd"
+Statistics="*res://scripts/globals/statistics.gd"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=4
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
@@ -45,6 +48,7 @@ enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
 folder_colors={
 "res://assets/": "red",
+"res://levels/": "teal",
 "res://scenes/": "orange",
 "res://scripts/": "green",
 "res://tilesets/": "yellow"

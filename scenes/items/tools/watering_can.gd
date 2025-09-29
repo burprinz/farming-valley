@@ -14,4 +14,5 @@ func _do_left_click(player: Player) -> void:
 			crop = crop as Crop
 			if crop.cell_position == position:
 				crop.water_crop()
+				Statistics.add_used_tool(DataTypes.ToolTypes.WateringCan, 1)
 				break

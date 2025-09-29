@@ -17,6 +17,7 @@ func on_hurt(hit_damage: int) -> void:
 	material.set_shader_parameter("shake_intensity", 0.0)
 	
 func on_max_damage_reached() -> void:
+	Statistics.add_destroyed_object("Small Tree", 1)
 	call_deferred("add_log_scene")
 	queue_free()
 

@@ -1,3 +1,4 @@
 [gd_scene format=3 uid="uid://cg431n401wpu7"]
 
 [node name="TreesAndRocksLayer" type="TileMapLayer"]
+y_sort_enabled = true

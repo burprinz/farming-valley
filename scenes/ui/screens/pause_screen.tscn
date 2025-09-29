@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0h72mkl6gf5t"]
+[gd_scene load_steps=5 format=3 uid="uid://b0h72mkl6gf5t"]
 
 [ext_resource type="PackedScene" uid="uid://df2kh13raqrdx" path="res://scenes/ui/pause/pause_main.tscn" id="1_6g2nm"]
 [ext_resource type="Script" uid="uid://cnxptag22akfu" path="res://scenes/ui/screens/pause_screen.gd" id="1_me20o"]
 [ext_resource type="PackedScene" uid="uid://1mfjv5e7n15c" path="res://scenes/ui/pause/pause_settings.tscn" id="3_mbtw4"]
+[ext_resource type="PackedScene" uid="uid://dhjn46nj0b046" path="res://scenes/ui/pause/pause_statistics.tscn" id="4_3me8m"]
 
 [node name="PauseScreen" type="CanvasLayer"]
 script = ExtResource("1_me20o")
@@ -10,4 +11,8 @@ script = ExtResource("1_me20o")
 [node name="PauseMain" parent="." node_paths=PackedStringArray("pause_screen") instance=ExtResource("1_6g2nm")]
 pause_screen = NodePath("..")
 
-[node name="PauseSettings" parent="." instance=ExtResource("3_mbtw4")]
+[node name="PauseSettings" parent="." node_paths=PackedStringArray("main") instance=ExtResource("3_mbtw4")]
+main = NodePath("..")
+
+[node name="PauseStatistics" parent="." node_paths=PackedStringArray("pause_screen") instance=ExtResource("4_3me8m")]
+pause_screen = NodePath("..")

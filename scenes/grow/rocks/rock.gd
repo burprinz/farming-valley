@@ -15,6 +15,7 @@ func on_hurt(hit_damage: int) -> void:
 	damage_component.apply_damage(hit_damage)
 	
 func on_max_damage_reached() -> void:
+	Statistics.add_destroyed_object("Rock", 1)
 	call_deferred("add_stone_scene")
 	queue_free()
 

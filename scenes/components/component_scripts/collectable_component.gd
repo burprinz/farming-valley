@@ -5,8 +5,11 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		Log.DEBUG("Collected: " + parent_item.display_name + " x" + str(parent_item.amount))
+		
+		var am = parent_item.amount
 		var remaining = InventoryManager.consume_items(parent_item)
+		Log.DEBUG("Collected: " + parent_item.display_name + " x" + str(am-remaining))
+		Statistics.add_items_to_collected(parent_item.display_name, am-remaining)
 		if remaining == 0:
 			get_parent().queue_free()
 			return
