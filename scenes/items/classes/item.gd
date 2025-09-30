@@ -10,3 +10,9 @@ func _get_texture() -> Texture2D:
 
 func _get_type() -> String:
 	return "item"
+
+func _on_hotbar_selected() -> void:
+	pass
+
+func _on_hotbar_deselected() -> void:
+	pass

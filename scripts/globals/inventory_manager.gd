@@ -23,6 +23,7 @@ var current_inv_mov_state: INV_MOV_STATES = INV_MOV_STATES.NOTHING_SELECTED
 var current_selected_item: Item
 
 signal hotbar_changed
+signal hotbar_slot_changed
 signal inventory_changed
 signal selected_item_changed
 
@@ -120,13 +121,18 @@ func is_selected_item_tool() -> bool:
 		create_hotbar()
 	return selected_hotbar_slot >= 0 && selected_hotbar_slot < hotbar_length && hotbar_infos[selected_hotbar_slot].tool_type != DataTypes.ToolTypes.None
 
+
+
 func get_selected_tool_type() -> DataTypes.ToolTypes:
 	return hotbar_infos[selected_hotbar_slot].tool_type
 
 func change_selected_hotbar_slot(new_slot: int) -> void:
 	if GameManager.current_game_state == GameManager.GameStates.ingame:
 		Log.DEBUG("Hotbarslot " + str(new_slot) + " selected")
+		hotbar[selected_hotbar_slot]._on_hotbar_deselected()	
 		selected_hotbar_slot = new_slot
+		hotbar[selected_hotbar_slot]._on_hotbar_selected()
+		hotbar_slot_changed.emit()
 	elif GameManager.current_game_state == GameManager.GameStates.inventory:
 		item_from_hotbar_clicked(new_slot)
 
@@ -137,12 +143,19 @@ func remove_items_from_current_hotbar_slot(am: int) -> void:
 	hotbar_infos[selected_hotbar_slot].amount -= am
 	hotbar[selected_hotbar_slot].amount -= am
 	if hotbar_infos[selected_hotbar_slot].amount <= 0:
-		hotbar[selected_hotbar_slot] = null
+		hotbar[selected_hotbar_slot]._on_hotbar_deselected()
+		var none = none_item.instantiate()
+		hotbar[selected_hotbar_slot] = none
 		var slotinfo := ItemSlotInformation.new()
 		slotinfo.name = "none"
 		hotbar_infos[selected_hotbar_slot] = slotinfo
+		hotbar_slot_changed.emit()
 	
 	hotbar_changed.emit()
+
+func get_selected_slot() -> Item:
+	return hotbar[selected_hotbar_slot]
+
 # INVENTORY
 
 func create_inventory() -> void:
@@ -369,7 +382,8 @@ func add_hotbar_slot_to_selected_item(pos: int) -> void:
 	hotbar_infos[pos].amount -= delete_amont
 	current_selected_item.amount = new_amount
 	if hotbar[pos].amount <= 0:
-		hotbar[pos] = null
+		var none = none_item.instantiate()
+		hotbar[pos] = none
 		var slotinfo := ItemSlotInformation.new()
 		slotinfo.name = "none"
 		hotbar_infos[pos] = slotinfo
@@ -452,7 +466,8 @@ func add_inventory_slot_to_selected_slot(pos: Vector2i) -> void:
 	inventory_infos[pos.y][pos.x].amount -= delete_amont
 	current_selected_item.amount = new_amount
 	if inventory[pos.y][pos.x].amount <= 0:
-		inventory[pos.y][pos.x] = null
+		var none = none_item.instantiate()
+		inventory[pos.y][pos.x] = none
 		var slotinfo := ItemSlotInformation.new()
 		slotinfo.name = "none"
 		inventory_infos[pos.y][pos.x] = slotinfo

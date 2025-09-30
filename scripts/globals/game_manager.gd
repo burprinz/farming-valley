@@ -33,3 +33,4 @@ func _process(delta: float) -> void:
 func change_game_state(new_state: GameStates):
 	current_game_state = new_state
 	game_state_changed.emit()
+	

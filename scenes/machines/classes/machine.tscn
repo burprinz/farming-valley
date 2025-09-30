@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5kx5nmrn76t2"]
+
+[ext_resource type="Script" uid="uid://bw7u7cd1u37ol" path="res://scenes/machines/classes/machine.gd" id="1_gpstb"]
+
+[node name="Machine" type="Sprite2D"]
+y_sort_enabled = true
+script = ExtResource("1_gpstb")

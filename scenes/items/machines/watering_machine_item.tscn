@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbls8asasiw5t"]
+
+[ext_resource type="Texture2D" uid="uid://c20dhj8uo258o" path="res://assets/luiskun/machines/watering_machine.png" id="1_36hv7"]
+[ext_resource type="Script" uid="uid://cykgprrptge8j" path="res://scenes/items/machines/watering_machine_item.gd" id="1_dmcnc"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="3_1fmsy"]
+[ext_resource type="PackedScene" uid="uid://2j2max5dsk1m" path="res://scenes/machines/watering_machine.tscn" id="3_dicdd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dicdd"]
+size = Vector2(16, 16)
+
+[node name="WateringMachineItem" type="Sprite2D"]
+texture = ExtResource("1_36hv7")
+script = ExtResource("1_dmcnc")
+machine = ExtResource("3_dicdd")
+tool = 7
+display_name = "Watering Machine"
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("3_1fmsy")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("RectangleShape2D_dicdd")

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://byuv7cmg63jc4"]
+
+[node name="MachineInteractionComponent" type="Area2D"]

@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://dm8kqr8fw40ut" path="res://scenes/layers/scripts/machine_layer.gd" id="1_1io8f"]
 
 [node name="MachineLayer" type="TileMapLayer" groups=["machine_layer"]]
+y_sort_enabled = true
 script = ExtResource("1_1io8f")

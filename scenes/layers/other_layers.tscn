@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://318eqbtkg63b"]
+
+[ext_resource type="PackedScene" uid="uid://cg431n401wpu7" path="res://scenes/layers/trees_and_rocks_layer.tscn" id="1_xs6v4"]
+[ext_resource type="PackedScene" uid="uid://bgh8o764k7a4n" path="res://scenes/layers/sunflower_layer.tscn" id="2_l7m67"]
+[ext_resource type="PackedScene" uid="uid://ci26e6nah072o" path="res://scenes/layers/machine_layer.tscn" id="3_qmrct"]
+[ext_resource type="PackedScene" uid="uid://dqvbtaqcgfiwx" path="res://scenes/layers/crop_layer.tscn" id="4_qs3pg"]
+[ext_resource type="PackedScene" uid="uid://76ngug1p63qw" path="res://scenes/layers/dropped_items_layer.tscn" id="5_qqvm8"]
+
+[node name="OtherLayers" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TreesAndRocksLayer" parent="." instance=ExtResource("1_xs6v4")]
+
+[node name="SunflowerLayer" parent="." instance=ExtResource("2_l7m67")]
+
+[node name="MachineLayer" parent="." instance=ExtResource("3_qmrct")]
+
+[node name="CropLayer" parent="." instance=ExtResource("4_qs3pg")]
+
+[node name="DroppedItemsLayer" parent="." instance=ExtResource("5_qqvm8")]

@@ -10,6 +10,8 @@ var local_cell_position: Vector2
 var cell_position: Vector2i
 
 func can_add_soil(player: Player) -> bool:
+	
+	
 	return in_distance(player) && tmp_cell_source == none_source
 
 func can_plant_seeds(player: Player) -> bool:

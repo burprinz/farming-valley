@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://2j2max5dsk1m"]
+
+[ext_resource type="Texture2D" uid="uid://c20dhj8uo258o" path="res://assets/luiskun/machines/watering_machine.png" id="1_1gd6f"]
+[ext_resource type="Script" uid="uid://bew7qxbojlwxn" path="res://scenes/machines/watering_machine.gd" id="1_pad3n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gd6f"]
+size = Vector2(16, 13)
+
+[node name="WateringMachine" type="Sprite2D"]
+texture = ExtResource("1_1gd6f")
+script = ExtResource("1_pad3n")
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_1gd6f")

@@ -32,7 +32,6 @@ Statistics="*res://scripts/globals/statistics.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=4
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
@@ -64,6 +63,7 @@ inventory_info=""
 crop_layer=""
 item_drop_layer=""
 machine_layer=""
+grid_show_layer=""
 
 [input]
 
@@ -126,6 +126,8 @@ pause={
 2d_physics/layer_5="Object"
 2d_physics/layer_6="Collectable"
 2d_physics/layer_7="NPC"
+2d_physics/layer_8="Machine"
+2d_physics/layer_9="Crop"
 
 [rendering]
 
