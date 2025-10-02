@@ -8,7 +8,9 @@ enum GameStates {
 
 var current_game_state: GameStates = GameStates.ingame
 
+
 signal game_state_changed
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("open_inventory"):

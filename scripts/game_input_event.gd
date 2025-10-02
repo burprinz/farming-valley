@@ -1,4 +1,4 @@
-class_name GameInputEvents
+class_name GameInputEvent
 
 static var direction: Vector2
 

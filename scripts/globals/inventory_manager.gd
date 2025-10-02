@@ -7,7 +7,7 @@ var none_item = preload("res://scenes/items/classes/none_item.tscn")
 var hotbar: Array[Item]
 var hotbar_infos: Array[ItemSlotInformation]
 var hotbar_created: bool = false
-var selected_hotbar_slot: int = -1
+var selected_hotbar_slot: int = 0
 
 var inventory: Array[Array]
 var inventory_infos: Array[Array]
@@ -28,6 +28,14 @@ signal inventory_changed
 signal selected_item_changed
 
 # ALLGEMEIN
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("hotbar_down"):
+		selected_hotbar_slot = (selected_hotbar_slot+1)%hotbar_length
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("hotbar_up"):
+		selected_hotbar_slot = (selected_hotbar_slot-1)%hotbar_length
+		hotbar_slot_changed.emit()
 
 # Returnt was nicht ins inv gepasst hat
 func consume_items(item: Item) -> int:
@@ -360,7 +368,19 @@ func add_selected_items_to_hotbar_slot(pos: int, amount: int) -> void:
 		selected_item_changed.emit()
 		hotbar_changed.emit()
 		Log.DEBUG("Adding x"+ str(amount) + " '"+ hotbar[pos].display_name + "' to hotbar pos " + str(pos))
-
+	else:
+		var tmp_item = hotbar[pos].duplicate()
+		
+		hotbar[pos] = current_selected_item.duplicate()
+		hotbar[pos].amount = current_selected_item.amount
+		create_hotbar_infos(pos)
+		
+		current_selected_item = tmp_item
+		
+		selected_item_changed.emit()
+		hotbar_changed.emit()
+		Log.DEBUG("Changing x"+ str(amount) + " '"+ hotbar[pos].display_name + "' to hotbar pos " + str(pos))
+	
 func add_hotbar_slot_to_selected_item(pos: int) -> void:
 	if hotbar_infos[pos].name == "none":
 		add_selected_items_to_hotbar_slot(pos, current_selected_item.amount)
@@ -422,7 +442,7 @@ func add_selected_items_to_inventory_slot(pos: Vector2i, amount: int) -> void:
 		
 		selected_item_changed.emit()
 		inventory_changed.emit()
-		Log.DEBUG("Dropping x"+ str(amount) + " '"+ inventory[pos.y][pos.x].display_name + "' to hotbar pos " + str(pos))
+		Log.DEBUG("Dropping x"+ str(amount) + " '"+ inventory[pos.y][pos.x].display_name + "' to inventory pos " + str(pos))
 	elif inventory_infos[pos.y][pos.x].stackable && inventory_infos[pos.y][pos.x].name == current_selected_item.display_name:
 		var hotbar_amount: int = inventory_infos[pos.y][pos.x].amount
 		
@@ -443,7 +463,19 @@ func add_selected_items_to_inventory_slot(pos: Vector2i, amount: int) -> void:
 		
 		selected_item_changed.emit()
 		inventory_changed.emit()
-		Log.DEBUG("Adding x"+ str(amount) + " '"+ inventory[pos.y][pos.x].display_name + "' to hotbar pos " + str(pos))
+		Log.DEBUG("Adding x"+ str(amount) + " '"+ inventory[pos.y][pos.x].display_name + "' to inventory pos " + str(pos))
+	else:
+		var tmp_item = inventory[pos.y][pos.x].duplicate()
+		
+		inventory[pos.y][pos.x] = current_selected_item.duplicate()
+		inventory[pos.y][pos.x].amount = current_selected_item.amount
+		create_inventory_infos(pos)
+		
+		current_selected_item = tmp_item
+		
+		selected_item_changed.emit()
+		inventory_changed.emit()
+		Log.DEBUG("Changing x"+ str(amount) + " '"+ inventory[pos.y][pos.x].display_name + "' to inventory pos " + str(pos))
 
 func add_inventory_slot_to_selected_slot(pos: Vector2i) -> void:
 	if inventory_infos[pos.y][pos.x].name == "none":

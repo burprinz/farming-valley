@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://umrt2oc0b2hu"]
+[gd_scene load_steps=107 format=4 uid="uid://umrt2oc0b2hu"]
 
 [ext_resource type="PackedScene" uid="uid://c343oihnn18he" path="res://scenes/components/tools_cursor_component.tscn" id="1_negps"]
 [ext_resource type="TileSet" uid="uid://cxpsd7ox64hp6" path="res://tilesets/game_tile_set.tres" id="1_rxc8i"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://d0nspt7mdayrh" path="res://scenes/characters/player/player.tscn" id="2_uifb5"]
 [ext_resource type="PackedScene" uid="uid://cg431n401wpu7" path="res://scenes/layers/trees_and_rocks_layer.tscn" id="3_fr5jo"]
 [ext_resource type="PackedScene" uid="uid://gs7vwxfkyw8g" path="res://scenes/grow/trees/small_tree.tscn" id="4_h4bct"]
-[ext_resource type="Shader" uid="uid://brfj6jow2wbq3" path="res://scenes/grow/shake.gdshader" id="5_l6quf"]
 [ext_resource type="PackedScene" uid="uid://g2fgcivvuq47" path="res://scenes/grow/trees/large_tree.tscn" id="6_wei4j"]
 [ext_resource type="PackedScene" uid="uid://cxygrdsr8der4" path="res://scenes/grow/rocks/rock.tscn" id="7_wwew4"]
 [ext_resource type="PackedScene" uid="uid://bgh8o764k7a4n" path="res://scenes/layers/sunflower_layer.tscn" id="8_w1i40"]
@@ -20,267 +19,1059 @@
 [ext_resource type="PackedScene" uid="uid://cywtyijt0saan" path="res://scenes/items/nature/seeds/corn_seeds.tscn" id="16_xclfm"]
 [ext_resource type="PackedScene" uid="uid://c3lav1qtkr4i3" path="res://scenes/ui/screens/game_screen.tscn" id="19_o1qqa"]
 
+[sub_resource type="Shader" id="Shader_negps"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_negps"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_negps")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_o1qqa"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o1qqa"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_o1qqa")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_sfd58"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sfd58"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_sfd58")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_xclfm"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xclfm"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_xclfm")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_elcw7"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_elcw7"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_elcw7")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_x7xat"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x7xat"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_x7xat")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_6ig3l"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ig3l"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_6ig3l")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_1nlyt"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nlyt"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_1nlyt")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_4rlsg"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rlsg"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_4rlsg")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_oir7x"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oir7x"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_oir7x")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_43yu5"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43yu5"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_43yu5")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_4gpjc"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gpjc"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_4gpjc")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_0ovlu"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ovlu"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_0ovlu")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_4ob2m"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ob2m"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_4ob2m")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_0px2x"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0px2x"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_0px2x")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_sdtir"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sdtir"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_sdtir")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_07qkq"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_07qkq"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_07qkq")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_cla8g"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cla8g"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_cla8g")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_kj2s6"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kj2s6"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_kj2s6")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_v5y7r"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v5y7r"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_v5y7r")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_hclpk"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hclpk"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_hclpk")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_owwne"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_owwne"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_owwne")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_3g12m"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3g12m"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_3g12m")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_nsewg"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nsewg"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_nsewg")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_gmgjc"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gmgjc"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_gmgjc")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_tydgb"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tydgb"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_tydgb")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_syaqe"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_syaqe"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_syaqe")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_x02u1"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x02u1"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_x02u1")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_1ioq1"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ioq1"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_1ioq1")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_bao5m"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bao5m"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_bao5m")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_e83i4"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e83i4"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_e83i4")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_yhtwp"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yhtwp"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_yhtwp")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_shgy0"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shgy0"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_shgy0")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_6l0e3"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6l0e3"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_6l0e3")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_yq3ft"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yq3ft"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_yq3ft")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_xr2ev"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xr2ev"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_xr2ev")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_bgv0q"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bgv0q"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_bgv0q")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_0b8pe"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0b8pe"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_0b8pe")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_0qocb"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0qocb"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_0qocb")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_16g2g"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_16g2g"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_16g2g")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_hq4ev"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hq4ev"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_hq4ev")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_foocq"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_foocq"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_foocq")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
+
+[sub_resource type="Shader" id="Shader_ecrkc"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecrkc"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_ecrkc")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
 
+[sub_resource type="Shader" id="Shader_bjy6f"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float shake_intensity = 0.0;
+uniform float shake_speed = 20.0;
+
+void vertex() {
+	vec2 shake = vec2(0.0);
+
+	if (VERTEX.y < 0.0) {
+		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
+	}
+
+	VERTEX.xy += shake;
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bjy6f"]
 resource_local_to_scene = true
-shader = ExtResource("5_l6quf")
+shader = SubResource("Shader_bjy6f")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 10.0
 

@@ -511,6 +511,10 @@ script = ExtResource("5_qd3e3")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 node_state_machine = NodePath("..")
+speed = null
+sprint_speed = null
+dash_speed = null
+dash_vanish = null
 
 [node name="Chopping" type="Node" parent="StatesMachine" node_paths=PackedStringArray("player", "animated_sprite_2d", "hit_component_collision_shape")]
 script = ExtResource("10_blysn")

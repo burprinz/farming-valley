@@ -15,13 +15,13 @@ func _on_physics_process(_delta : float) -> void:
 		animated_sprite_2d.play("idle_front")
 
 func _on_next_transitions() -> void:
-	GameInputEvents.movement_input()
+	GameInputEvent.movement_input()
 	
-	if GameInputEvents.is_movement_input():
+	if GameInputEvent.is_movement_input():
 		transition.emit("Walk")
 	
 	
-	if InventoryManager.is_selected_item_tool() && GameInputEvents.use_tool():
+	if InventoryManager.is_selected_item_tool() && GameInputEvent.use_tool():
 		var tool_type : DataTypes.ToolTypes = InventoryManager.get_selected_tool_type()
 		if tool_type == DataTypes.ToolTypes.Axe:
 			transition.emit("Chopping")

@@ -67,6 +67,7 @@ func _ready() -> void:
 	hotbar_labels.append(hotbar_label_09)
 	
 	InventoryManager.hotbar_changed.connect(on_hotbar_changed)
+	InventoryManager.hotbar_slot_changed.connect(on_hotbar_slot_changed)
 
 
 func on_hotbar_changed() -> void:
@@ -83,30 +84,35 @@ func on_hotbar_changed() -> void:
 			hotbar_icons[i].texture = null
 			hotbar_labels[i].text = ""
 
+func on_hotbar_slot_changed() -> void:
+	pass
+	
+func on_hotbar_pressed(pos : int):
+	InventoryManager.change_selected_hotbar_slot(pos)
 
 func _on_hotbar_01_pressed() -> void:
-	InventoryManager.change_selected_hotbar_slot(0)
+	on_hotbar_pressed(0)
 
 func _on_hotbar_02_pressed() -> void:
-	InventoryManager.change_selected_hotbar_slot(1)
+	on_hotbar_pressed(1)
 
 func _on_hotbar_03_pressed() -> void:
-	InventoryManager.change_selected_hotbar_slot(2)
+	on_hotbar_pressed(2)
 
 func _on_hotbar_04_pressed() -> void:
-	InventoryManager.change_selected_hotbar_slot(3)
+	on_hotbar_pressed(3)
 
 func _on_hotbar_05_pressed() -> void:
-	InventoryManager.change_selected_hotbar_slot(4)
+	on_hotbar_pressed(4)
 
 func _on_hotbar_06_pressed() -> void:
-	InventoryManager.change_selected_hotbar_slot(5)
+	on_hotbar_pressed(5)
 
 func _on_hotbar_07_pressed() -> void:
-		InventoryManager.change_selected_hotbar_slot(6)
+	on_hotbar_pressed(6)
 
 func _on_hotbar_08_pressed() -> void:
-	InventoryManager.change_selected_hotbar_slot(7)
+	on_hotbar_pressed(7)
 
 func _on_hotbar_09_pressed() -> void:
-	InventoryManager.change_selected_hotbar_slot(8)
+	on_hotbar_pressed(8)

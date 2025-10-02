@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://cxpsd7ox64hp6"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://cxpsd7ox64hp6"]
 
 [ext_resource type="Texture2D" uid="uid://dyhew7jharc3q" path="res://assets/sproutlands/tilesets/water.png" id="1_tjtrf"]
 [ext_resource type="Texture2D" uid="uid://cltr514gygddn" path="res://assets/sproutlands/tilesets/grass.png" id="2_tkbyn"]
 [ext_resource type="Texture2D" uid="uid://dmkvb1ygdfpqd" path="res://assets/sproutlands/tilesets/tilled_dirt_wide_cropfield.png" id="3_v1amf"]
 [ext_resource type="Texture2D" uid="uid://cu68pjauiu0ru" path="res://assets/sproutlands/tilesets/basic_grass_biom_things.png" id="4_7cqdy"]
+[ext_resource type="Texture2D" uid="uid://cs0u1hdyjpdea" path="res://assets/sproutlands/tilesets/fences.png" id="5_pudl8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkbyn"]
 texture = ExtResource("1_tjtrf")
@@ -463,7 +464,107 @@ texture = ExtResource("4_7cqdy")
 7:4/0 = 0
 5:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uk42g"]
+texture = ExtResource("5_pudl8")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 3
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -7, 3, -7, 3, 8, -3, 8)
+0:0/0/terrains_peering_bit/bottom_side = 3
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 3
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, 8, -3, 8)
+0:1/0/terrains_peering_bit/bottom_side = 3
+0:1/0/terrains_peering_bit/top_side = 3
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 3
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, 4, -3, 4)
+0:2/0/terrains_peering_bit/top_side = 3
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 3
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, 4, -3, 4)
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrain = 3
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -7, 8, -7, 8, 4, -3.08578, 4)
+1:3/0/terrains_peering_bit/right_side = 3
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 3
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, -4.0258, 8, -4, 8, 4, -3, 4)
+1:2/0/terrains_peering_bit/right_side = 3
+1:2/0/terrains_peering_bit/top_side = 3
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 3
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, -4.02191, 8, -4, 8, 2, 3, 2, 3, 8, -3, 8)
+1:1/0/terrains_peering_bit/right_side = 3
+1:1/0/terrains_peering_bit/bottom_side = 3
+1:1/0/terrains_peering_bit/top_side = 3
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 3
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 8, -8, 8, -4, 8, 2, 3, 2, 3, 8, -3, 8)
+1:0/0/terrains_peering_bit/right_side = 3
+1:0/0/terrains_peering_bit/bottom_side = 3
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 3
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 3, -8, 8, -8, 8, -4, 8, 2, 3, 2, 3, 8, -3, 8, -3, 1.94161, -8, 2)
+2:0/0/terrains_peering_bit/right_side = 3
+2:0/0/terrains_peering_bit/bottom_side = 3
+2:0/0/terrains_peering_bit/left_side = 3
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 3
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, -4.02191, 8, -4, 8, 2, 3, 2, 3, 8, -3, 8, -3, 1.94161, -8, 2, -8, -4, -3, -4.09125)
+2:1/0/terrains_peering_bit/right_side = 3
+2:1/0/terrains_peering_bit/bottom_side = 3
+2:1/0/terrains_peering_bit/left_side = 3
+2:1/0/terrains_peering_bit/top_side = 3
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 3
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, -4.0258, 8, -4, 8, 4, -8, 4, -8, -4, -3, -3.97844)
+2:2/0/terrains_peering_bit/right_side = 3
+2:2/0/terrains_peering_bit/left_side = 3
+2:2/0/terrains_peering_bit/top_side = 3
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrain = 3
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -7, 8, -7, 8, 4, -8, 4)
+2:3/0/terrains_peering_bit/right_side = 3
+2:3/0/terrains_peering_bit/left_side = 3
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 3
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -7, 3, -7, 3, 4, -8, 4)
+3:3/0/terrains_peering_bit/left_side = 3
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 3
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, -4.0258, 3, 4, -8, 4, -8, -4, -3, -3.97844)
+3:2/0/terrains_peering_bit/left_side = 3
+3:2/0/terrains_peering_bit/top_side = 3
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 3
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, 8, -3, 8, -3, 1.94161, -8, 2, -8, -4, -3, -4.09125)
+3:1/0/terrains_peering_bit/bottom_side = 3
+3:1/0/terrains_peering_bit/left_side = 3
+3:1/0/terrains_peering_bit/top_side = 3
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 3
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 3, -8, 3, 2, 3, 8, -3, 8, -3, 1.94161, -8, 2)
+3:0/0/terrains_peering_bit/bottom_side = 3
+3:0/0/terrains_peering_bit/left_side = 3
+
 [resource]
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass Terrain"
 terrain_set_0/terrain_0/color = Color(0.256482, 0.16525, 1, 1)
@@ -471,7 +572,10 @@ terrain_set_0/terrain_1/name = "Tilled Dirt Path Terrain"
 terrain_set_0/terrain_1/color = Color(0.828261, 0, 0.168014, 1)
 terrain_set_0/terrain_2/name = "Tilled Dirt Farm Terrain"
 terrain_set_0/terrain_2/color = Color(0, 0.578518, 0.0668758, 1)
+terrain_set_0/terrain_3/name = "Fences"
+terrain_set_0/terrain_3/color = Color(0.627604, 0.396323, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_tkbyn")
 sources/1 = SubResource("TileSetAtlasSource_v1amf")
 sources/2 = SubResource("TileSetAtlasSource_7cqdy")
 sources/3 = SubResource("TileSetAtlasSource_pudl8")
+sources/4 = SubResource("TileSetAtlasSource_uk42g")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://do4os26kl8yrq"]
+
+[ext_resource type="Script" uid="uid://bkygg5ahskk30" path="res://scenes/layers/scripts/structure_layer.gd" id="1_bm4yg"]
+
+[node name="StructureLayer" type="TileMapLayer" groups=["structure_layer"]]
+script = ExtResource("1_bm4yg")

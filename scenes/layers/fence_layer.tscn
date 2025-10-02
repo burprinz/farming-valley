@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxwn02whdpg7c"]
+
+[ext_resource type="TileSet" uid="uid://cxpsd7ox64hp6" path="res://tilesets/game_tile_set.tres" id="1_yw8fg"]
+[ext_resource type="Script" uid="uid://cis88oeh1qar" path="res://scenes/layers/scripts/fence_layer.gd" id="2_kf8hm"]
+
+[node name="FenceLayer" type="TileMapLayer" groups=["fence_layer"]]
+tile_set = ExtResource("1_yw8fg")
+script = ExtResource("2_kf8hm")
