@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://heh3q0v27nsn"]
+[gd_scene load_steps=11 format=4 uid="uid://heh3q0v27nsn"]
 
 [ext_resource type="PackedScene" uid="uid://c343oihnn18he" path="res://scenes/components/tools_cursor_component.tscn" id="1_av17k"]
 [ext_resource type="TileSet" uid="uid://cxpsd7ox64hp6" path="res://tilesets/game_tile_set.tres" id="2_n2ev8"]
 [ext_resource type="PackedScene" uid="uid://djte8g4b22bkt" path="res://scenes/layers/farm_land_layer.tscn" id="3_dcj5d"]
 [ext_resource type="PackedScene" uid="uid://76ngug1p63qw" path="res://scenes/layers/dropped_items_layer.tscn" id="4_ury62"]
-[ext_resource type="PackedScene" uid="uid://do4os26kl8yrq" path="res://scenes/layers/structure_layer.tscn" id="5_bl043"]
 [ext_resource type="PackedScene" uid="uid://dhfln8h1mtifj" path="res://scenes/items/tools/stone_hoe.tscn" id="5_imry4"]
 [ext_resource type="PackedScene" uid="uid://bteamn8ml3s0x" path="res://scenes/items/tools/watering_can.tscn" id="7_5xne8"]
 [ext_resource type="PackedScene" uid="uid://dqvbtaqcgfiwx" path="res://scenes/layers/crop_layer.tscn" id="8_av17k"]
@@ -28,11 +27,6 @@ tile_set = ExtResource("2_n2ev8")
 
 [node name="FarmLandLayer" parent="GameTilemap" instance=ExtResource("3_dcj5d")]
 
-[node name="CropLayer" parent="GameTilemap" instance=ExtResource("8_av17k")]
-tile_map_data = PackedByteArray("AAAPABcAAAAAAAAAAQA=")
-
-[node name="StructureLayer" parent="GameTilemap" instance=ExtResource("5_bl043")]
-
 [node name="DroppedItemsLayer" parent="." instance=ExtResource("4_ury62")]
 
 [node name="StoneHoe" parent="DroppedItemsLayer" instance=ExtResource("5_imry4")]
@@ -48,6 +42,8 @@ amount = 12
 [node name="CornSeeds2" parent="DroppedItemsLayer" instance=ExtResource("9_5ko52")]
 position = Vector2(144, 186)
 amount = 20
+
+[node name="CropLayer" parent="." instance=ExtResource("8_av17k")]
 
 [node name="Player" parent="." instance=ExtResource("9_eek1i")]
 position = Vector2(184, 214)

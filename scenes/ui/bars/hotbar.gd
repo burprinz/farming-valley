@@ -68,6 +68,8 @@ func _ready() -> void:
 	
 	InventoryManager.hotbar_changed.connect(on_hotbar_changed)
 	InventoryManager.hotbar_slot_changed.connect(on_hotbar_slot_changed)
+	
+	hotbar_cells[0].set_pressed(true)
 
 
 func on_hotbar_changed() -> void:
@@ -85,7 +87,14 @@ func on_hotbar_changed() -> void:
 			hotbar_labels[i].text = ""
 
 func on_hotbar_slot_changed() -> void:
-	pass
+	var slot : int = InventoryManager.selected_hotbar_slot
+	for i in range(InventoryManager.hotbar_length):
+		if i == slot:
+			hotbar_cells[i].set_pressed(true)
+		else:
+			hotbar_cells[i].set_pressed(false)
+	
+	
 	
 func on_hotbar_pressed(pos : int):
 	InventoryManager.change_selected_hotbar_slot(pos)

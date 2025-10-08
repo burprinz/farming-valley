@@ -1,11 +1,12 @@
 extends SeedItem
 
-var crop_scene = preload("res://scenes/grow/crops/crop.tscn")
-var resulting_item = preload("res://scenes/items/materials/corn.tscn")
+var crop = preload("res://scenes/grow/crops/corn_crop.tscn")
 
-func _get_crop_scene() -> Crop:
-	var inst = crop_scene.instantiate() as Crop
-	var inst2 = resulting_item.instantiate() as Item
-	inst2.amount = 2
-	inst.call_deferred("set_properties", crop_texture, crop_aging_len, inst2)
-	return inst
+func _plant_crop(cell_pos : Vector2i, global_pos : Vector2i, crop_layer: CropLayer) -> void:
+	Log.DEBUG("Trying to plant Corn at " + str(cell_pos))
+	var ins : Crop = crop.instantiate()
+	ins.cell_pos = cell_pos
+	ins.global_position = global_pos + Vector2i(0,5)
+	CropfieldManager.add_crop(ins)
+	crop_layer.add_child(ins)
+	#crop_layer.set_cell(pos, 0, Vector2i(0,0), 1)

@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=4 uid="uid://be0066e6f0fsh"]
+[gd_scene load_steps=11 format=4 uid="uid://be0066e6f0fsh"]
 
 [ext_resource type="PackedScene" uid="uid://c343oihnn18he" path="res://scenes/components/tools_cursor_component.tscn" id="1_hqt8o"]
 [ext_resource type="TileSet" uid="uid://cxpsd7ox64hp6" path="res://tilesets/game_tile_set.tres" id="2_m11n4"]
 [ext_resource type="PackedScene" uid="uid://do4os26kl8yrq" path="res://scenes/layers/structure_layer.tscn" id="3_bxlmu"]
 [ext_resource type="PackedScene" uid="uid://dxwn02whdpg7c" path="res://scenes/layers/fence_layer.tscn" id="3_pk5h2"]
-[ext_resource type="TileSet" uid="uid://bqg3lkvti5gdx" path="res://tilesets/structures.tres" id="4_hto35"]
 [ext_resource type="PackedScene" uid="uid://d0nspt7mdayrh" path="res://scenes/characters/player/player.tscn" id="5_u6kho"]
 [ext_resource type="PackedScene" uid="uid://dfkw1xqdc78iy" path="res://scenes/layers/game_objects_layer.tscn" id="6_pk5h2"]
-[ext_resource type="PackedScene" uid="uid://eknfwgih4qdh" path="res://scenes/interactable/signs/clickable_sign.tscn" id="7_i6o7j"]
+[ext_resource type="PackedScene" uid="uid://d0toesdjpvnw3" path="res://scenes/interactable/signs/clickable_build_sign.tscn" id="7_w6k43"]
+[ext_resource type="PackedScene" uid="uid://djinn7vnf1qhg" path="res://scenes/items/materials/log.tscn" id="8_d6wgb"]
 [ext_resource type="Script" uid="uid://4jwd0ofv6gkk" path="res://scripts/custom_interaction/test_structure_build_sign.gd" id="8_w6k43"]
+[ext_resource type="PackedScene" uid="uid://ct1k4jmfd3fxu" path="res://scenes/items/materials/stone.tscn" id="9_7l6bn"]
 
 [node name="TestSceneTrees" type="Node2D"]
 
@@ -28,19 +29,35 @@ tile_set = ExtResource("2_m11n4")
 tile_map_data = PackedByteArray("AAAgAPz/BAABAAAAAAAhAPz/BAACAAMAAAAiAPz/BAACAAMAAAAjAPz/BAACAAMAAAAkAPz/BAACAAMAAAAlAPz/BAACAAMAAAAmAPz/BAACAAMAAAAnAPz/BAADAAAAAAAnAP3/BAAAAAEAAAAnAP7/BAAAAAEAAAAnAP//BAAAAAEAAAAnAAAABAAAAAEAAAAnAAEABAAAAAEAAAAnAAIABAADAAIAAAAmAAIABAACAAMAAAAlAAIABAACAAMAAAAkAAIABAACAAMAAAAjAAIABAACAAMAAAAiAAIABAACAAMAAAAhAAIABAACAAMAAAAgAAIABAABAAIAAAAgAAEABAAAAAEAAAAgAAAABAAAAAEAAAAgAP//BAAAAAEAAAAgAP7/BAAAAAEAAAAgAP3/BAAAAAEAAAA=")
 
 [node name="StructureLayer" parent="GameTilemap" instance=ExtResource("3_bxlmu")]
-tile_set = ExtResource("4_hto35")
 
 [node name="GameObjectsLayer" parent="GameTilemap" instance=ExtResource("6_pk5h2")]
 tile_set = ExtResource("2_m11n4")
 
-[node name="ClickableSign" parent="GameTilemap/GameObjectsLayer" node_paths=PackedStringArray("action") instance=ExtResource("7_i6o7j")]
-position = Vector2(550, 37)
+[node name="ClickableBuildSign" parent="GameTilemap/GameObjectsLayer" node_paths=PackedStringArray("action") instance=ExtResource("7_w6k43")]
+position = Vector2(557, 39)
+item_cost = Array[PackedScene]([ExtResource("8_d6wgb"), ExtResource("9_7l6bn")])
+amount_item_cost = Array[int]([20, 15])
 action = NodePath("Action")
 
-[node name="Action" type="Node2D" parent="GameTilemap/GameObjectsLayer/ClickableSign" node_paths=PackedStringArray("fence_layer", "structure_layer")]
+[node name="Action" type="Node2D" parent="GameTilemap/GameObjectsLayer/ClickableBuildSign" node_paths=PackedStringArray("fence_layer", "structure_layer")]
+position = Vector2(-5, 0)
 script = ExtResource("8_w6k43")
 fence_layer = NodePath("../../../FenceLayer")
 structure_layer = NodePath("../../../StructureLayer")
+
+[node name="Log" parent="GameTilemap/GameObjectsLayer" instance=ExtResource("8_d6wgb")]
+position = Vector2(331, 113)
+
+[node name="Log2" parent="GameTilemap/GameObjectsLayer" instance=ExtResource("8_d6wgb")]
+position = Vector2(330, 89)
+amount = 20
+
+[node name="Stone" parent="GameTilemap/GameObjectsLayer" instance=ExtResource("9_7l6bn")]
+position = Vector2(348, 113)
+
+[node name="Stone2" parent="GameTilemap/GameObjectsLayer" instance=ExtResource("9_7l6bn")]
+position = Vector2(348, 87)
+amount = 15
 
 [node name="Player" parent="." instance=ExtResource("5_u6kho")]
 position = Vector2(184, 214)

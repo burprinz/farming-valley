@@ -26,6 +26,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon01" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar01"]
 custom_minimum_size = Vector2(16, 16)
@@ -60,6 +61,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon02" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar02"]
 custom_minimum_size = Vector2(16, 16)
@@ -94,6 +96,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon03" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar03"]
 custom_minimum_size = Vector2(16, 16)
@@ -128,6 +131,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon04" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar04"]
 custom_minimum_size = Vector2(16, 16)
@@ -162,6 +166,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon05" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar05"]
 custom_minimum_size = Vector2(16, 16)
@@ -196,6 +201,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon06" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar06"]
 custom_minimum_size = Vector2(16, 16)
@@ -230,6 +236,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon07" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar07"]
 custom_minimum_size = Vector2(16, 16)
@@ -264,6 +271,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon08" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar08"]
 custom_minimum_size = Vector2(16, 16)
@@ -298,6 +306,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_type_variation = &"ToolButton"
+toggle_mode = true
 
 [node name="HotbarIcon09" type="TextureRect" parent="MarginContainer/HBoxContainer/Hotbar09"]
 custom_minimum_size = Vector2(16, 16)

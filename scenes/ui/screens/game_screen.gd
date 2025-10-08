@@ -27,3 +27,4 @@ func on_game_state_changed() -> void:
 		# Ingame
 		ingame_screen.hide()
 		pause_screen.show()
+		pause_screen.to_main()

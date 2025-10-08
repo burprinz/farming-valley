@@ -1,41 +1,30 @@
 class_name Crop
-extends Node2D
+extends Sprite2D
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var hurt_component: HurtComponent = $HurtComponent
-@onready var water_reminder: TextureRect = $WaterReminder
+@export var water_reminder : TextureRect
+@export var output_items : Array[PackedScene]
+@export var output_probs : Array[float]
 
-#@export var aging_texture: Texture2D
+var id : int
+var cell_pos : Vector2i
+
 var mature_length: int
-
-var cell_position: Vector2i
-
 var days_passed: int = 0
 var is_currently_watered: bool = false
 
-var harvest_item: Item
 
 func _ready() -> void:
-	#sprite_2d.texture = aging_texture
-	sprite_2d.vframes = 1
-	#sprite_2d.hframes = mature_length
-	sprite_2d.frame = days_passed
+	frame = days_passed
+	mature_length = hframes
 	water_reminder.show()
-	
-	hurt_component.hurt.connect(on_hurt)
 	DayAndNightCycleManager.time_tick_day.connect(on_time_tick_day)
 
-func set_properties(texture: Texture2D, len: int, harvest: Item) -> void:
-	sprite_2d.texture = texture
-	sprite_2d.hframes = len
-	mature_length = len
-	harvest_item = harvest
 
 func on_time_tick_day(day: int) -> void:
 	if is_currently_watered:
 		days_passed += 1
 		is_currently_watered = false
-		sprite_2d.frame = days_passed
+		frame = days_passed
 	
 	if days_passed == mature_length:
 		call_deferred("harvest_plant")
@@ -46,19 +35,11 @@ func on_time_tick_day(day: int) -> void:
 		
 func harvest_plant() -> void:
 	var layer  = get_tree().get_first_node_in_group("item_drop_layer") as Node
-	
-	if harvest_item == null:
-		queue_free()
-	
-	#var drop = item.instantiate() as Item
-	#drop.amount = 1
-	harvest_item.global_position = global_position
-	
-	Statistics.add_harvested_crop(harvest_item.display_name + " Plant", 1)
-	
-	CropfieldManager.remove_crop(cell_position)
-	
-	layer.add_child(harvest_item)
+	var drops : Array[Item] = create_drops()
+	Statistics.add_harvested_crop(drops[0].display_name + " Plant", 1)
+	CropfieldManager.remove_crop(cell_pos)
+	for item : Item in drops:
+		layer.add_child(item)
 		
 func water_crop() -> void:
 	if is_currently_watered:
@@ -66,5 +47,20 @@ func water_crop() -> void:
 	is_currently_watered = true
 	water_reminder.hide()
 
-func on_hurt() -> void:
-	water_crop()
+func create_drops() -> Array[Item]:
+	
+	var drops : Array[Item]
+	
+	for i in range(len(output_items)):
+		var item_am : int = floor(output_probs[i])
+		var prob = output_probs[i] - item_am
+		if prob > 0 && prob >= randf():
+			item_am += 1
+		
+		if item_am > 0:
+			var item : Item = output_items[i].instantiate()
+			item.amount = item_am
+			item.global_position = global_position
+			drops.append(item)
+				
+	return drops

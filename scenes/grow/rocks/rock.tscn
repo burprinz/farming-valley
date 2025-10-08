@@ -19,6 +19,7 @@ radius = 5.0
 radius = 7.01783
 
 [node name="Rock" type="Sprite2D"]
+y_sort_enabled = true
 position = Vector2(0, -5)
 texture = SubResource("AtlasTexture_5imrt")
 script = ExtResource("1_5imrt")

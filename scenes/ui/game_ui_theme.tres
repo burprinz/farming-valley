@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=71 format=3 uid="uid://c1381xujec7ub"]
+[gd_resource type="Theme" load_steps=73 format=3 uid="uid://c1381xujec7ub"]
 
 [ext_resource type="Texture2D" uid="uid://ut4wios25gn1" path="res://assets/sproutlands/ui/basic_ui_sprites.png" id="1_nhbk8"]
 [ext_resource type="FontFile" uid="uid://153b14ewwlu3" path="res://assets/sproutlands/ui/fonts/pixel_font.ttf" id="2_68i34"]
@@ -88,6 +88,17 @@ region = Rect2(59, 59, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r32iy"]
 texture = SubResource("AtlasTexture_1hvfw")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enpq1"]
+atlas = ExtResource("1_nhbk8")
+region = Rect2(11, 107, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6prrc"]
+texture = SubResource("AtlasTexture_enpq1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqa1q"]
 atlas = ExtResource("1_nhbk8")
@@ -356,6 +367,8 @@ InfoText/fonts/font = ExtResource("2_68i34")
 ItemAmountLabel/base_type = &"Label"
 ItemAmountLabel/font_sizes/font_size = 9
 ItemAmountLabel/fonts/font = ExtResource("2_68i34")
+LightWoodPanel/base_type = &"PanelContainer"
+LightWoodPanel/styles/panel = SubResource("StyleBoxTexture_6prrc")
 PlayerMenuBackgroundPanel/base_type = &"PanelContainer"
 PlayerMenuBackgroundPanel/styles/panel = SubResource("StyleBoxTexture_1hvfw")
 SettingsEdit/base_type = &"TextEdit"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxlh5abc4pkw2"]
+
+[ext_resource type="TileSet" uid="uid://cxpsd7ox64hp6" path="res://tilesets/game_tile_set.tres" id="1_rmx8t"]
+[ext_resource type="Script" uid="uid://j4x3mwj2mdck" path="res://scenes/layers/scripts/overgrowth_layer.gd" id="2_br0sw"]
+
+[node name="OvergrowthLayer" type="TileMapLayer" groups=["overgrowth_layer"]]
+tile_set = ExtResource("1_rmx8t")
+script = ExtResource("2_br0sw")

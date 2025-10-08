@@ -6,12 +6,11 @@ var field_source = 2
 
 var tmp_cell_source: int
 
+var mouse_position : Vector2
 var local_cell_position: Vector2
 var cell_position: Vector2i
 
 func can_add_soil(player: Player) -> bool:
-	
-	
 	return in_distance(player) && tmp_cell_source == none_source
 
 func can_plant_seeds(player: Player) -> bool:
@@ -21,10 +20,17 @@ func can_remove_something(player: Player) -> bool:
 	return in_distance(player) && tmp_cell_source > 0
 
 func in_distance(player: Player) -> bool:
-	var mouse_position = get_local_mouse_position()
+	mouse_position = get_local_mouse_position()
 	cell_position = local_to_map(mouse_position)
 	local_cell_position = map_to_local(cell_position)
 	tmp_cell_source = get_cell_source_id(cell_position)
+	
+	print("|")
+	print(mouse_position)
+	print(cell_position)
+	print(local_cell_position)
+	print("|")
+	
 	var distance = player.global_position.distance_to(local_cell_position)
 	return distance <= player.interaction_radius
 
@@ -44,6 +50,8 @@ func get_local_cell_position() -> Vector2:
 	var result = pos - Vector2(0, half_size.y)
 	return result
 
+func get_mouse_position() -> Vector2:
+	return mouse_position
 
 func get_cell_position() -> Vector2i:
-	return local_cell_position
+	return cell_position

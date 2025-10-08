@@ -10,13 +10,10 @@ func _do_left_click(player: Player) -> void:
 	
 	if farmland_layer.can_plant_seeds(player):
 		var cell_pos = farmland_layer.get_cell_position()
-		if CropfieldManager.is_field_free(cell_pos):
-			var ins: Crop = _get_crop_scene()
-			ins.global_position = farmland_layer.get_local_cell_position() + Vector2(0,3)
-			ins.cell_position = cell_pos
-			crop_layer.add_child(ins)
-			CropfieldManager.add_crop(cell_pos)
-			InventoryManager.remove_items_from_current_hotbar_slot(1)
+		var global_pos = farmland_layer.get_local_cell_position()
+		if crop_layer.is_field_free(cell_pos):
+			_plant_crop(cell_pos, global_pos, crop_layer)
 
-func _get_crop_scene() -> Crop:
-	return null
+
+func _plant_crop(cell_pos : Vector2i, global_pos : Vector2i, crop_layer: CropLayer) -> void:
+	pass

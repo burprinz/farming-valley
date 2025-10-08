@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0toesdjpvnw3"]
+
+[ext_resource type="Texture2D" uid="uid://bc15b6un8leuk" path="res://assets/luiskun/objects/wooden/build_wooden_sign.png" id="1_km3wp"]
+[ext_resource type="Script" uid="uid://ccv8fy36fft77" path="res://scenes/interactable/signs/clickable_build_sign.gd" id="1_ly1hs"]
+[ext_resource type="PackedScene" uid="uid://dn8fed206vtu4" path="res://scenes/ui/hover/hover_item_list.tscn" id="3_5lopl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lopl"]
+size = Vector2(28, 28)
+
+[node name="ClickableBuildSign" type="Sprite2D"]
+texture = ExtResource("1_km3wp")
+script = ExtResource("1_ly1hs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_5lopl")
+
+[node name="HoverItemList" parent="." instance=ExtResource("3_5lopl")]
+offset_left = -38.0
+offset_top = -95.0
+offset_right = 7.0
+offset_bottom = -50.0
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

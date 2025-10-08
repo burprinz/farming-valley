@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8ihro6e46c6f"]
+
+[ext_resource type="Texture2D" uid="uid://bhfw81dxhtj41" path="res://assets/sproutlands/crops/corn.png" id="1_kf6ej"]
+[ext_resource type="Script" uid="uid://jf60gej5k0ve" path="res://scenes/grow/crops/corn_crop.gd" id="1_vhb1s"]
+[ext_resource type="Texture2D" uid="uid://yd78u0xjw5mf" path="res://assets/luiskun/ui/info.png" id="5_b6m1v"]
+
+[node name="CornCrop" type="Sprite2D" node_paths=PackedStringArray("water_reminder")]
+position = Vector2(0, 1)
+texture = ExtResource("1_kf6ej")
+hframes = 4
+script = ExtResource("1_vhb1s")
+water_reminder = NodePath("WaterReminder")
+
+[node name="WaterReminder" type="TextureRect" parent="."]
+offset_left = -2.0
+offset_top = -15.0
+offset_right = 2.0
+offset_bottom = -3.0
+texture = ExtResource("5_b6m1v")

@@ -9,7 +9,5 @@ func _do_left_click(player: Player) -> void:
 	
 	var ins: Machine = machine.instantiate()
 	ins.global_position = machine_layer.get_local_cell_pos()
-	#ins.cell_position = machine_layer.get_cell_pos()
-	print(ins.global_position)
 	machine_layer.add_child(ins)
 	InventoryManager.remove_items_from_current_hotbar_slot(1)

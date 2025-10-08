@@ -10,7 +10,7 @@ func add_items_to_collected(item_name: String, amount: int) -> void:
 		items_collected[item_name] += amount
 	else:
 		items_collected[item_name] = amount
-	print(len(items_collected.keys()))
+	#print(len(items_collected.keys()))
 
 func add_used_tool(tool: DataTypes.ToolTypes, amount: int) -> void:
 	if tool in tools_used:

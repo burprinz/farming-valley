@@ -31,12 +31,38 @@ signal selected_item_changed
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("hotbar_down"):
-		selected_hotbar_slot = (selected_hotbar_slot+1)%hotbar_length
+		selected_hotbar_slot = (selected_hotbar_slot-1+hotbar_length)%hotbar_length
 		hotbar_slot_changed.emit()
 	elif Input.is_action_just_pressed("hotbar_up"):
-		selected_hotbar_slot = (selected_hotbar_slot-1)%hotbar_length
+		selected_hotbar_slot = (selected_hotbar_slot+1)%hotbar_length
 		hotbar_slot_changed.emit()
-
+	elif Input.is_action_just_pressed("1"):
+		selected_hotbar_slot = 0
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("2"):
+		selected_hotbar_slot = 1
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("3"):
+		selected_hotbar_slot = 2
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("4"):
+		selected_hotbar_slot = 3
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("5"):
+		selected_hotbar_slot = 4
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("6"):
+		selected_hotbar_slot = 5
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("7"):
+		selected_hotbar_slot = 6
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("8"):
+		selected_hotbar_slot = 7
+		hotbar_slot_changed.emit()
+	elif Input.is_action_just_pressed("9"):
+		selected_hotbar_slot = 8
+		hotbar_slot_changed.emit()
 # Returnt was nicht ins inv gepasst hat
 func consume_items(item: Item) -> int:
 	var name: String = item.display_name
@@ -53,7 +79,81 @@ func consume_items(item: Item) -> int:
 		
 	return amount
 
+func has_enough_items(names : Array[String], amounts : Array[int]) -> bool:
+	if !inventory_created:
+		create_inventory()
+	
+	if !hotbar_created:
+		create_hotbar()
+	
+	for y in range(3):
+		for x in range(hotbar_length):
+			if inventory_infos[y][x].name != "none":
+				for i in range(len(names)):
+					if inventory_infos[y][x].name == names[i] && amounts[i] > 0:
+						amounts[i] -= inventory_infos[y][x].amount
+						break
+						
+	for x in range(hotbar_length):
+		if hotbar_infos[x].name != "none":
+			for i in range(len(names)):
+				if hotbar_infos[x].name == names[i] && amounts[i] > 0:
+					amounts[i] -= hotbar_infos[x].amount
+					break
+	
+	for i in range(len(amounts)):
+		if amounts[i] > 0:
+			return false
+	
+	return true
 
+func remove_items(names : Array[String], amounts : Array[int]) -> void:
+	
+	if !inventory_created:
+		create_inventory()
+	
+	if !hotbar_created:
+		create_hotbar()
+	
+	for y in range(3):
+		for x in range(hotbar_length):
+			if inventory_infos[y][x].name != "none":
+				for i in range(len(names)):
+					if inventory_infos[y][x].name == names[i] && amounts[i] > 0:
+						if amounts[i] >= inventory_infos[y][x].amount:
+							amounts[i] -= inventory_infos[y][x].amount
+							
+							var none: Item = none_item.instantiate()
+							inventory[y][x] = none
+							var slotinfo := ItemSlotInformation.new()
+							slotinfo.name = "none"
+							inventory_infos[y][x] = slotinfo
+						else:
+							inventory[y][x].amount -= amounts[i]
+							inventory_infos[y][x].amount -= amounts[i]
+							amounts[i] = 0
+	
+	for x in range(hotbar_length):
+		if hotbar_infos[x].name != "none":
+			for i in range(len(names)):
+				if hotbar_infos[x].name == names[i] && amounts[i] > 0:
+					if amounts[i] >= hotbar_infos[x].amount:
+						amounts[i] -= hotbar_infos[x].amount
+	
+						var none: Item = none_item.instantiate()
+						hotbar[x] = none
+						var slotinfo := ItemSlotInformation.new()
+						slotinfo.name = "none"
+						hotbar_infos[x] = slotinfo
+					else:
+						hotbar[x].amount -= amounts[i]
+						hotbar_infos[x].amount -= amounts[i]
+						amounts[i] = 0
+				
+	
+	inventory_changed.emit()
+	hotbar_changed.emit()
+	
 # HOTBAR
 func create_hotbar() -> void:
 	var none: Item = none_item.instantiate()
@@ -244,7 +344,7 @@ func add_as_many_items_to_inventory(item: Item, name: String, amount: int, stack
 func perform_left_click(player: Player) -> void:
 	if selected_hotbar_slot < 0 || selected_hotbar_slot >= hotbar_length:
 		return
-		
+	
 	if hotbar[selected_hotbar_slot] is ToolItem:
 		hotbar[selected_hotbar_slot]._do_left_click(player)
 

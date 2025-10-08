@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://sstjblck7khf"]
+
+[ext_resource type="Theme" uid="uid://c1381xujec7ub" path="res://scenes/ui/game_ui_theme.tres" id="1_hr277"]
+[ext_resource type="Script" uid="uid://b6ts035guwxcf" path="res://scenes/ui/hover/hover_item_container.gd" id="2_rqtb6"]
+[ext_resource type="FontFile" uid="uid://153b14ewwlu3" path="res://assets/sproutlands/ui/fonts/pixel_font.ttf" id="4_q0ruq"]
+
+[node name="HoverItemContainer" type="PanelContainer"]
+offset_right = 53.0
+offset_bottom = 31.0
+size_flags_horizontal = 0
+theme = ExtResource("1_hr277")
+theme_type_variation = &"LightWoodPanel"
+script = ExtResource("2_rqtb6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_q0ruq")
+theme_override_font_sizes/font_size = 18
