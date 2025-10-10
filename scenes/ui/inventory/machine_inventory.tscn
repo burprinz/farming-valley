@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bspssuwh8xcty"]
+
+[ext_resource type="Theme" uid="uid://c1381xujec7ub" path="res://scenes/ui/game_ui_theme.tres" id="1_1vkyh"]
+[ext_resource type="Script" uid="uid://drjdvoy07xtjk" path="res://scenes/ui/inventory/machine_inventory.gd" id="2_rsu1j"]
+[ext_resource type="Texture2D" uid="uid://ddpedrgaghilk" path="res://assets/luiskun/ui/exit_texture.png" id="3_b41bx"]
+
+[node name="MachineInventory" type="PanelContainer"]
+z_index = 1
+offset_right = 14.0
+offset_bottom = 14.0
+theme = ExtResource("1_1vkyh")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_rsu1j")
+
+[node name="Rows" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ExitButton" type="Button" parent="Rows"]
+custom_minimum_size = Vector2(19, 21)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_type_variation = &"ImageButton"
+
+[node name="TextureRect" type="TextureRect" parent="Rows/ExitButton"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 17.0
+offset_bottom = 17.0
+texture = ExtResource("3_b41bx")
+
+[connection signal="pressed" from="Rows/ExitButton" to="." method="_on_exit_button_pressed"]

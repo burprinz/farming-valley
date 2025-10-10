@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvjgueiymugyt"]
+
+[ext_resource type="Script" uid="uid://ichj810866go" path="res://scenes/machines/classes/inventory_machine.gd" id="1_7adq7"]
+[ext_resource type="Texture2D" uid="uid://c20dhj8uo258o" path="res://assets/luiskun/machines/watering_machine.png" id="1_clmtg"]
+
+[node name="InventoryMachine" type="Sprite2D"]
+texture = ExtResource("1_clmtg")
+script = ExtResource("1_7adq7")
+machine_name = null
+radius = null

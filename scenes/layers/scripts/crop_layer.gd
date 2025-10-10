@@ -1,5 +1,8 @@
 class_name CropLayer
 extends TileMapLayer
 
-func is_field_free(pos : Vector2i) -> bool:
-	return get_cell_source_id(pos) == -1
+func get_local_cell_position(_pos : Vector2i) -> Vector2:
+	var pos: Vector2 = map_to_local(_pos)
+	var half_size: Vector2 = Vector2(tile_set.tile_size) / 2.0
+	var result = pos - Vector2(0, half_size.y)
+	return result

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://k58pgacf8b1c"]
+
+[ext_resource type="Script" uid="uid://1vvk7pevnqlt" path="res://scenes/items/machines/planting_machine_item.gd" id="1_kunm7"]
+[ext_resource type="Texture2D" uid="uid://dyrpkpxq8uybp" path="res://assets/luiskun/machines/planting_machine.png" id="1_umob5"]
+[ext_resource type="PackedScene" uid="uid://kvbek4eri77u" path="res://scenes/machines/planting_machine.tscn" id="3_3dvut"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="4_3dvut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edrym"]
+size = Vector2(16, 16)
+
+[node name="PlantingMachineItem" type="Sprite2D"]
+texture = ExtResource("1_umob5")
+script = ExtResource("1_kunm7")
+machine = ExtResource("3_3dvut")
+tool = 7
+display_name = "Planting Machine"
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("4_3dvut")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("RectangleShape2D_edrym")

@@ -25,11 +25,6 @@ func in_distance(player: Player) -> bool:
 	local_cell_position = map_to_local(cell_position)
 	tmp_cell_source = get_cell_source_id(cell_position)
 	
-	print("|")
-	print(mouse_position)
-	print(cell_position)
-	print(local_cell_position)
-	print("|")
 	
 	var distance = player.global_position.distance_to(local_cell_position)
 	return distance <= player.interaction_radius
@@ -38,6 +33,9 @@ func add_soil() -> void:
 	var mouse_position = get_local_mouse_position()
 	var cell_position = local_to_map(mouse_position)
 	set_cells_terrain_connect([cell_position], 0, field_source, true)
+
+func add_soil_at_pos(pos : Vector2i) -> void:
+	set_cells_terrain_connect([pos], 0, field_source, true)
 
 func remove_soil() -> void:
 	var mouse_position = get_local_mouse_position()

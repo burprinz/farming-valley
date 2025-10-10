@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://kvbek4eri77u"]
+
+[ext_resource type="Script" uid="uid://3powebf5rvt2" path="res://scenes/machines/planting_machine.gd" id="1_53k4u"]
+[ext_resource type="Texture2D" uid="uid://dyrpkpxq8uybp" path="res://assets/luiskun/machines/planting_machine.png" id="1_gdvph"]
+[ext_resource type="PackedScene" uid="uid://bspssuwh8xcty" path="res://scenes/ui/inventory/machine_inventory.tscn" id="3_y1txq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53k4u"]
+size = Vector2(16, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1txq"]
+size = Vector2(16, 16)
+
+[node name="PlantingMachine" type="Sprite2D" node_paths=PackedStringArray("machine_inventory")]
+texture = ExtResource("1_gdvph")
+script = ExtResource("1_53k4u")
+machine_name = "Planter"
+machine_inventory = NodePath("MachineInventory")
+
+[node name="MachineInventory" parent="." instance=ExtResource("3_y1txq")]
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_53k4u")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_y1txq")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

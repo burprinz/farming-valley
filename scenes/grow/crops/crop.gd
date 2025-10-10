@@ -12,7 +12,6 @@ var mature_length: int
 var days_passed: int = 0
 var is_currently_watered: bool = false
 
-
 func _ready() -> void:
 	frame = days_passed
 	mature_length = hframes

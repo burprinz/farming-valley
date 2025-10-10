@@ -27,6 +27,7 @@ DataManager="*res://scripts/globals/data_manager.gd"
 DayAndNightCycleManager="*res://scripts/globals/day_and_night_cycle_manager.gd"
 CropfieldManager="*res://scripts/globals/cropfield_manager.gd"
 Statistics="*res://scripts/globals/statistics.gd"
+MachineManager="*res://scripts/globals/machine_manager.gd"
 
 [display]
 
@@ -68,6 +69,9 @@ game_objects_layer=""
 fence_layer=""
 structure_layer=""
 overgrowth_layer=""
+camera=""
+ui_overlay=""
+grass_layer=""
 
 [input]
 
