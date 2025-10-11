@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcdhl0xqod2hx"]
+
+[ext_resource type="Texture2D" uid="uid://cnfa50l4w5b18" path="res://assets/luiskun/machines/harvesting_machine.png" id="1_8lltj"]
+[ext_resource type="Script" uid="uid://b0rkgki8fbvmq" path="res://scenes/items/machines/harvesting_machine_item.gd" id="1_yw328"]
+[ext_resource type="PackedScene" uid="uid://bsrk676chsrn6" path="res://scenes/machines/harvesting_machine.tscn" id="3_aih4i"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="3_drxhs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aih4i"]
+size = Vector2(16, 16)
+
+[node name="HarvestingMachineItem" type="Sprite2D"]
+texture = ExtResource("1_8lltj")
+script = ExtResource("1_yw328")
+machine = ExtResource("3_aih4i")
+tool = 7
+display_name = "Harvester"
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("3_drxhs")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("RectangleShape2D_aih4i")

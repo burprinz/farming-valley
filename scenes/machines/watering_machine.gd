@@ -3,8 +3,7 @@ extends Machine
 
 
 func _prepare() -> void:
-	Log.DEBUG("Starting Watering Machine at " + str(cell_pos))
-	DayAndNightCycleManager.four_o_clock.connect(water_crops)
+	DayAndNightCycleManager.six_o_clock.connect(water_crops)
 	DayAndNightCycleManager.twenty_o_clock.connect(water_crops)
 
 func water_crops() -> void:

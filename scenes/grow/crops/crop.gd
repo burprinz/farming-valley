@@ -12,6 +12,8 @@ var mature_length: int
 var days_passed: int = 0
 var is_currently_watered: bool = false
 
+var harvestable : bool = false
+
 func _ready() -> void:
 	frame = days_passed
 	mature_length = hframes
@@ -20,17 +22,18 @@ func _ready() -> void:
 
 
 func on_time_tick_day(day: int) -> void:
-	if is_currently_watered:
-		days_passed += 1
-		is_currently_watered = false
-		frame = days_passed
-	
-	if days_passed == mature_length:
-		call_deferred("harvest_plant")
-		queue_free()
-	
-	if is_currently_watered == false:
-		water_reminder.show()
+	if !harvestable:
+		if is_currently_watered:
+			days_passed += 1
+			is_currently_watered = false
+			frame = days_passed
+		
+		if days_passed == mature_length-1:
+			harvestable = true
+			is_currently_watered = true
+		
+		if is_currently_watered == false:
+			water_reminder.show()
 		
 func harvest_plant() -> void:
 	var layer  = get_tree().get_first_node_in_group("item_drop_layer") as Node
@@ -39,7 +42,10 @@ func harvest_plant() -> void:
 	CropfieldManager.remove_crop(cell_pos)
 	for item : Item in drops:
 		layer.add_child(item)
-		
+
+func remove_crop_from_scene() -> void:
+	queue_free()
+
 func water_crop() -> void:
 	if is_currently_watered:
 		return

@@ -40,3 +40,15 @@ func is_crop_at_pos(pos : Vector2i) -> bool:
 
 func has_crops() -> bool:
 	return len(crops) > 0
+
+func try_to_harvest_crop(cell_pos : Vector2i) -> Array[Item]:
+	for i in range(len(crops)):
+		if crops[i].cell_pos == cell_pos:
+			if crops[i].harvestable:
+				var items : Array[Item] = crops[i].create_drops()
+				crops[i].remove_crop_from_scene()
+				crops.remove_at(i)
+				return items
+			break
+	var empty : Array[Item]
+	return empty

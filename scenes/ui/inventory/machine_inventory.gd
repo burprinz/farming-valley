@@ -48,17 +48,21 @@ func add_items(item : Item) -> int:
 		var item_bar : Array[Item] = items[y]
 		for x in range(inv_size.x):
 			if item_bar[x]._get_type() == "none":
+				#print("Empty Spot")
 				item_bar[x] = item
 				bar[x].set_item(item)
 				return 0
 			elif item_bar[x].display_name == item.display_name:
 				var new_am = item_bar[x].amount + item.amount
+				#print("Same Item: Adding ", item.amount, " to ", item_bar[x].amount)
 				var remaining = 0
 				if new_am > Constants.MAX_ITEM_STACK_SIZE:
 					remaining = new_am - Constants.MAX_ITEM_STACK_SIZE
 					new_am = Constants.MAX_ITEM_STACK_SIZE
 				item_bar[x].amount = new_am
+				bar[x].change_amount(item_bar[x].amount)
 				item.amount = remaining
+				#print("New am: ", item_bar[x].amount, ", remaining: ", item.amount)
 				if item.amount == 0:
 					return 0
 	return item.amount

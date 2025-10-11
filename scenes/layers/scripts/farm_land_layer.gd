@@ -52,4 +52,5 @@ func get_mouse_position() -> Vector2:
 	return mouse_position
 
 func get_cell_position() -> Vector2i:
-	return cell_position
+	mouse_position = get_local_mouse_position()
+	return local_to_map(mouse_position)

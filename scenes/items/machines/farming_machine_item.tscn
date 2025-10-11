@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbwxiewdr6y86"]
+
+[ext_resource type="Script" uid="uid://pel2efb77e5a" path="res://scenes/items/machines/farming_machine_item.gd" id="1_eystj"]
+[ext_resource type="Texture2D" uid="uid://cetni8rtjh1lb" path="res://assets/luiskun/machines/item_collector_machine.png" id="1_prswj"]
+[ext_resource type="PackedScene" uid="uid://hv150w3nhtb3" path="res://scenes/components/collectable_component.tscn" id="1_r1p0u"]
+[ext_resource type="PackedScene" uid="uid://s43vghkjyrvn" path="res://scenes/machines/farming_machine.tscn" id="3_eher6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eystj"]
+size = Vector2(16, 16)
+
+[node name="FarmingMachineItem" type="Sprite2D"]
+texture = ExtResource("1_prswj")
+script = ExtResource("1_eystj")
+machine = ExtResource("3_eher6")
+tool = 7
+display_name = "Farmer"
+
+[node name="CollectableComponent" parent="." node_paths=PackedStringArray("parent_item") instance=ExtResource("1_r1p0u")]
+parent_item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("RectangleShape2D_eystj")

@@ -43,3 +43,11 @@ func is_field_free(cell_pos : Vector2i) -> bool:
 		if chunks[i].chunk_pos == chunk_pos:
 			return !chunks[i].is_crop_at_pos(cell_pos)
 	return true
+
+func try_to_harvest_crop(cell_pos : Vector2i) -> Array[Item]:
+	var chunk_pos : Vector2i = Vector2i(floor(cell_pos.x/CHUNK_SIZE), floor(cell_pos.y/CHUNK_SIZE))
+	for i in range(len(chunks)):
+		if chunks[i].chunk_pos == chunk_pos:
+			return chunks[i].try_to_harvest_crop(cell_pos)
+	var empty : Array[Item]
+	return empty

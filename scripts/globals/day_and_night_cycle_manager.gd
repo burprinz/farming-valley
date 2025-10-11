@@ -21,9 +21,10 @@ signal time_tick_day(day: int)
 signal real_second_tick()
 
 var signal_over : bool = true
-signal three_o_clock()
+signal two_o_clock()
 signal four_o_clock()
-signal ninteen_o_clock()
+signal six_o_clock()
+signal eighteen_o_clock()
 signal twenty_o_clock()
 
 func _ready() -> void:
@@ -54,21 +55,25 @@ func recalculate_time() -> void:
 	var hour: int = int(current_day_minutes / MINUTES_PER_HOUR)
 	var minute: int = int(current_day_minutes % MINUTES_PER_HOUR)
 	
-	if hour == 4:
+	if hour == 2:
+		if signal_over:
+			two_o_clock.emit()
+			signal_over = false
+	elif hour == 4:
 		if signal_over:
 			four_o_clock.emit()
+			signal_over = false
+	elif hour == 6:
+		if signal_over:
+			six_o_clock.emit()
+			signal_over = false
+	elif hour == 18:
+		if signal_over:
+			eighteen_o_clock.emit()
 			signal_over = false
 	elif hour == 20:
 		if signal_over:
 			twenty_o_clock.emit()
-			signal_over = false
-	elif hour == 2:
-		if signal_over:
-			three_o_clock.emit()
-			signal_over = false
-	elif hour == 18:
-		if signal_over:
-			ninteen_o_clock.emit()
 			signal_over = false
 	else:
 		signal_over = true
